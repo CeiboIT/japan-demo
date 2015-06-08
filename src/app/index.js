@@ -8,9 +8,25 @@ angular.module('ceibo-mukaeutsu', [
     'ngSanitize',
     'ui.router',
     //Our modules
-    'ceibo-mukaeutsu.landing'
+    'landing',
+    'locationsModule'
   ])
-  .config(function ($urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
+  .config(function ($urlRouterProvider, $stateProvider) {
+    //$urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('landing', {
+        url: '/landing',
+        abstract: true,
+        template: '<div ui-view></div>'
+      })
+
+      .state('landing.init', {
+        url: '/init',
+        template: 'app/modules/landing/landing.html',
+        controller : 'landingController as landing'
+      })
   })
+
+  .constant('fireRef', 'https://japan-demo.firebaseio.com/')
 ;
