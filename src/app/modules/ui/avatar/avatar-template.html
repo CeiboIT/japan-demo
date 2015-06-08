@@ -1,0 +1,19 @@
+<alert type="danger" ng-show="avatar.flashFallBack === true && avatar.hasFlash === false"><span translate>Please install the <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash Player</a> in order to upload yoour avatar</span></alert>
+<div ng-if="!(avatar.flashFallBack === true && avatar.hasFlash === false && !avatar.showPanel)">
+	<span class="thumb-lg m-r" cg-busy="{promise:avatar.uploadPromise, backdrop:false, templateUrl:'modules/lixil-ui-components/loader/loader-avatar.html', wrapperClass: 'fade-in'}">
+		<img ng-src="{{ avatar.model.avatarImg || avatar.preview}}" class="img-circle">
+	</span>
+	<a ng-file-select ng-capture="camera" ng-accept="avatar.validate($file)" ng-model="avatar.file" ng-file-change="avatar.upload()" class="underline-link">{{'Upload photo' | translate}}</a>
+	<p class="form-error">{{avatar.error | translate}}</p>
+</div>
+<div ng-if="!(avatar.flashFallBack === true && avatar.hasFlash === false) && avatar.showPanel">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <span class="thumb-lg m-r" cg-busy="{promise:avatar.uploadPromise, backdrop:false, templateUrl:'modules/lixil-ui-components/loader/loader-avatar.html', wrapperClass: 'fade-in'}">
+        <img ng-src="{{ avatar.model.avatarImg || avatar.preview }}" class="img-circle">
+      </span>
+      <a ng-file-select ng-capture="camera" ng-accept="avatar.validate($file)" ng-model="avatar.file" ng-file-change="avatar.upload()" class="underline-link">{{'Upload photo' | translate}}</a>
+      <p class="form-error">{{avatar.error | translate}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="upload-area" ng-show="!cover.showInPanel">
+      <img ng-src="{{cover.coverUrl || cover.model.coverUrl ||  '/images/cover.jpg'}}">
+      <div class="instructions">
+        <button type="button" ng-file-select ng-accept="cover.validate($file)" ng-model="cover.file" ng-file-change="cover.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload Cover' | translate}}</button>
+      </div>
+      <div ng-show="cover.progress > 0">
+      <progressbar class="progress-striped active" value="cover.progress" type="primary">{{cover.progress}}%</progressbar>z
+      </div>
+		</div>
+
+
+    <div class="upload-area" ng-show="cover.showInPanel">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <img ng-src="{{cover.coverUrl || cover.model.coverUrl || '/images/cover.jpg'}}">
+          <div class="instructions">
+            <button type="button" ng-file-select ng-accept="cover.validate($file)" ng-model="cover.file" ng-file-change="cover.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload Cover' | translate}}</button>
+          </div>
+          <div ng-show="cover.progress > 0">
+            <progressbar class="progress-striped active" value="cover.progress" type="primary">{{cover.progress}}%</progressbar>z
+          </div>
+        </div>
+      </div>
+    </div>
+
+	</div>
+</div>

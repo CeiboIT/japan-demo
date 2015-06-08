@@ -1,0 +1,23 @@
+<alert type="success" ng-show="authCtrl.signUpSuccess" class="text-center">
+  {{authCtrl.signUpSuccess | translate}}
+</alert>
+<div ng-hide="authCtrl.signUpSuccess">
+  <div class="wrapper text-center no-vertical-padding">
+    <p translate>Discover what great things we are doing around the world</p>
+  </div>
+  <h3 class="text-center bold" translate>Sign up</h3>
+  <form name="form" class="form-validation auth">
+  <div class="title-border text-sm"><span translate>New Users</span></div>
+    <div class="list-group list-group-sm signup">
+      <div class="form-group">
+        <input type="email" name="emailAddress" placeholder="{{'Email'|translate}}" class="form-control" ng-model="authCtrl.optin.email" ng-model-options="{'debounce': 500 }" required>
+        <p class="text-danger text-xs text-center" ng-show="authCtrl.error.message"><strong>{{ authCtrl.error.message }}</strong></p>
+      </div>
+      <button type="button" class="btn btn-sm btn-primary btn-rounded btn-block" ng-click="authCtrl.optinUser(authCtrl.optin); registeringUser=true" ng-disabled="form.$invalid" translate analytics-on="click" analytics-event="Optin">Sign up</button>
+    </div>
+    <div class="button-padding">
+      <p class="text-center" translate>Already a LINK user? Great!</p>
+      <a ui-sref="auth.login" class="btn btn-sm btn-dark btn-rounded btn-block" translate>Login</a>
+    </div>
+  </form>
+</div>

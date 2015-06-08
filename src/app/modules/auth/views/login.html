@@ -1,0 +1,20 @@
+<div cg-busy="authCtrl.loginPromise">
+  <alert type="success" close="(authCtrl.flash = null)" ng-show="authCtrl.flash">
+    {{authCtrl.flash | translate}}
+  </alert>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation auth" ng-submit="authCtrl.sendCredentials(authCtrl.user)" autocomplete="on" form-autofill-fix>
+      <div class="text-danger wrapper text-center" ng-show="authCtrl.error">
+        <p>{{ authCtrl.error | translate}}</p>
+      </div>
+      <div class="form-group merged">
+        <input name="email" type="email" placeholder="{{'Email'|translate}}" class="form-control" ng-model="authCtrl.user.email" required>
+      </div>
+      <div class="form-group">
+        <input name="password" type="password" placeholder="{{'Password'|translate}}" class="form-control" ng-model="authCtrl.user.password" required ng-minlength="8" ng-maxlength="64">
+      </div>
+      <button type="submit" class="btn btn-sm btn-primary btn-rounded btn-block" ng-disabled='form.$invalid' translate>Login</button>
+      <div class="text-center m-t m-b"><a ui-sref="auth.password" translate class="underline-link">Forgot password?</a></div>
+    </form>
+  </div>
+</div>
