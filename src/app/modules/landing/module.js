@@ -13,11 +13,6 @@ angular.module('landingModule', [])
         		templateUrl: 'app/modules/landing/views/landing.html',
 			})
 
-			.state('app.init', {
-				abstract: true,
-				template:'<div ui-view=""></div>'
-			})
-
 	})
 
 	//.directive('name', fuction() { ... return {...} ... })

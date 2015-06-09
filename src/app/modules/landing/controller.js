@@ -1,7 +1,7 @@
 
 'use strict';
 
-var landingCtrl = function($rootScope, $state, regionsService) {
+var landingCtrl = function($rootScope, $state) { //saque regionsService
 	var landing = this;
 
 	landing.state = $state;
@@ -9,7 +9,7 @@ var landingCtrl = function($rootScope, $state, regionsService) {
 	function init() {
 		console.log("landing controller");
 
-		regionsService.createRegion({name_en: 'Hello Kutral'});
+		//regionsService.createRegion({name_en: 'Hello Kutral'});
 	}
 
 	//INITIALIZING

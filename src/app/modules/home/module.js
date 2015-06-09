@@ -5,7 +5,7 @@ angular.module('homeModule', [])
 
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('app.init.home', {
+			.state('app.home', {
 				//parent: 'landing',
 				url: '/',
 				controller : 'homeCtrl as home',

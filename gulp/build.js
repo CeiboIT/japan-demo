@@ -18,7 +18,7 @@ module.exports = function(options) {
         quotes: true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: '',
+        module: 'gulp',
         root: 'app'
       }))
       .pipe(gulp.dest(options.tmp + '/partials/'));
@@ -75,7 +75,7 @@ module.exports = function(options) {
   gulp.task('other', function () {
     return gulp.src([
       options.src + '/**/*',
-      '!' + options.src + '/**/*.{html,css,js,scss}'
+      '!' + options.src + '/**/*.{html,css,js}'
     ])
       .pipe(gulp.dest(options.dist + '/'));
   });
