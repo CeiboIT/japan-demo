@@ -1,13 +1,25 @@
-/**
- * Created by emiliano on 06/06/15.
- */
-angular.module('landing', [])
-  .config(function($stateProvider) {
-    console.log($stateProvider);
-    /*$stateProvider
-      .state('landing', {
-        url: '/landing',
-        template: 'app/modules/landing/landing.html',
-        controller : 'landingController as landing'
-      });*/
-  });
+
+'use strict';
+
+angular.module('landingModule', [])
+
+	.config(function ($stateProvider, $urlRouterProvider) {
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider
+			.state('app', {
+				abstract: true,
+				controller : 'landingCtrl as landing',
+        		templateUrl: 'app/modules/landing/views/landing.html',
+			})
+
+			.state('app.init', {
+				abstract: true,
+				template:'<div ui-view=""></div>'
+			})
+
+	})
+
+	//.directive('name', fuction() { ... return {...} ... })
+	//.directive('name', fuction() { ... return {...} ... })
+

@@ -1,15 +1,22 @@
-/**
- * Created by emiliano on 08/06/15.
- */
 
+'use strict';
 
-var landingController = function(regionsService) {
+var landingCtrl = function($rootScope, $state, regionsService) {
+	var landing = this;
 
-  regionsService.createRegion({name_en: 'Hello Kutral'});
+	landing.state = $state;
+
+	function init() {
+		console.log("landing controller");
+
+		regionsService.createRegion({name_en: 'Hello Kutral'});
+	}
+
+	//INITIALIZING
+	init()
 
 }
 
-
-
-angular.module('landing')
-  .controller('landingController', landingController)
+angular
+	.module('landingModule')
+	.controller('landingCtrl', landingCtrl)
