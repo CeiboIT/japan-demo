@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('jpndemo', [
+angular
+  .module('jpndemo', [
 	// third party modules
 	'ngAnimate', 
 	'ngCookies', 
@@ -12,6 +13,10 @@ angular.module('jpndemo', [
 	// our modules
 	'landingModule',
 	'homeModule',
-])
+  ])
 
-;
+  .constant('fireRef', 'https://japan-demo.firebaseio.com/')
+
+  .run(function ($state, $rootScope) {
+    $rootScope.$state = $state;
+  })
