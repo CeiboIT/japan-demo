@@ -11497,7 +11497,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   border-top: 1px solid #e0e0e0;
   color: #9e9e9e;
   text-align: center;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   right: 0;
   left: 0;
