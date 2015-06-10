@@ -15,6 +15,20 @@ angular.module('landingModule', [])
 
 	})
 
-	//.directive('name', fuction() { ... return {...} ... })
-	//.directive('name', fuction() { ... return {...} ... })
+	.directive('jpnHeader', function() {
+		return {
+			restrict: 'E',
+			transclude: true,
+			controller: 'navBarCtrl as nav',
+			scope: {categories: '='},
+			templateUrl: 'app/modules/landing/views/header.html',
+		};
+	})
 
+	.directive('jpnFooter', function() {
+		return {
+			restrict: 'E',
+			transclude: true,
+			templateUrl: 'app/modules/landing/views/footer.html',
+		};
+	})

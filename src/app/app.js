@@ -10,9 +10,15 @@ angular
 	'ngResource', 
 	'ui.router', 
 	'ui.bootstrap', 
+	"ngMaterial",
 	// our modules
 	'landingModule',
 	'homeModule',
+	'citiesModule',
+	'regionsModule',
+	'tasksModule',
+	'worksModule',
+
   ])
 
   .constant('fireRef', 'https://japan-demo.firebaseio.com/')
