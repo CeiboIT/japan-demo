@@ -6,5 +6,5 @@ var tasksService = function($http, apiBaseUrl) {
 };
  
 angular
-	.module('tasksService')
+	.module('tasksModule')
 	.service('tasksService', tasksService)

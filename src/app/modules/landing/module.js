@@ -15,6 +15,14 @@ angular.module('landingModule', [])
 
 	})
 
+	.directive('jpnLoader', function() {
+		return {
+			restrict: 'E',
+			transclude: true,
+			templateUrl: 'app/modules/landing/views/loader.html',
+		};
+	})
+
 	.directive('jpnHeader', function() {
 		return {
 			restrict: 'E',
@@ -30,5 +38,13 @@ angular.module('landingModule', [])
 			restrict: 'E',
 			transclude: true,
 			templateUrl: 'app/modules/landing/views/footer.html',
+		};
+	})
+
+	.directive('jpnFooterIndicator', function() {
+		return {
+			restrict: 'E',
+			transclude: true,
+			templateUrl: 'app/modules/landing/views/footerIndicator.html',
 		};
 	})

@@ -18,7 +18,6 @@ angular
 	'regionsModule',
 	'tasksModule',
 	'worksModule',
-	'app',
   ])
 
   .constant('fireRef', 'https://japan-demo.firebaseio.com/')

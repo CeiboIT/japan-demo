@@ -6,5 +6,5 @@ var worksService = function($http, apiBaseUrl) {
 };
  
 angular
-	.module('worksService')
+	.module('worksModule')
 	.service('worksService', worksService)
