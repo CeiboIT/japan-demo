@@ -1,38 +1,37 @@
-/**
- * Created by emiliano on 04/02/15.
- */
-angular.module('lixilApp.auth',['ngStorage'])
-  .config(['$stateProvider', function($stateProvider, $urlRouterProvider) {
 
-    $stateProvider
-      .state('auth', {
-        abstract:true,
-        url:'/access',
-        templateUrl:'../modules/auth/views/accessAbstract.html',
-        controller: 'bgrdCtrl as bgrdCtrl'
-      })
+'use strict';
 
-      .state('auth.login',{
-        url: '/login',
-        templateUrl: '../modules/auth/views/login.html',
-        controller: 'authCtrl as authCtrl'
-      })
+angular.module('authModule', ['ngStorage'])
 
-      .state('auth.signup', {
-        url: '/signup',
-        templateUrl: '../modules/auth/views/signup.html',
-        controller: 'authCtrl as authCtrl'
-      })
-
-      .state('auth.password', {
-        url: '/password',
-        templateUrl: '../modules/auth/views/password.html',
-        controller: 'authCtrl as authCtrl'
-      })
-
-      .state('auth.register', {
-        url: '/register',
-        templateUrl: '../modules/auth/views/register.html',
-        controller: 'authCtrl as authCtrl'
-      });
-  }]);
+	.config(function ($stateProvider, $urlRouterProvider) {
+		$stateProvider
+/*
+			.state('auth', {
+				abstract: true,
+				url: '/access',
+				controller : 'bgrdCtrl as bgrd',
+        		templateUrl: 'app/modules/auth/views/accessAbstract.html',
+			})
+*/
+			.state('app.login', {
+				url: '/login',
+				controller : 'authCtrl as auth',
+        		templateUrl: 'app/modules/auth/views/login.html',
+			})
+			.state('app.signup', {
+				url: '/signup',
+				controller : 'authCtrl as auth',
+        		templateUrl: 'app/modules/auth/views/signup.html',
+			})
+			.state('app.password', {
+				url: '/password',
+				controller : 'authCtrl as auth',
+        		templateUrl: 'app/modules/auth/views/password.html',
+			})
+			.state('app.register', {
+				url: '/register',
+				controller : 'authCtrl as auth',
+        		templateUrl: 'app/modules/auth/views/register.html',
+			})
+	})
+	

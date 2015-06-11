@@ -1,20 +1,73 @@
-<div cg-busy="authCtrl.loginPromise">
-  <alert type="success" close="(authCtrl.flash = null)" ng-show="authCtrl.flash">
-    {{authCtrl.flash | translate}}
-  </alert>
-  <div class="m-b-lg">
-    <form name="form" class="form-validation auth" ng-submit="authCtrl.sendCredentials(authCtrl.user)" autocomplete="on" form-autofill-fix>
-      <div class="text-danger wrapper text-center" ng-show="authCtrl.error">
-        <p>{{ authCtrl.error | translate}}</p>
-      </div>
-      <div class="form-group merged">
-        <input name="email" type="email" placeholder="{{'Email'|translate}}" class="form-control" ng-model="authCtrl.user.email" required>
-      </div>
-      <div class="form-group">
-        <input name="password" type="password" placeholder="{{'Password'|translate}}" class="form-control" ng-model="authCtrl.user.password" required ng-minlength="8" ng-maxlength="64">
-      </div>
-      <button type="submit" class="btn btn-sm btn-primary btn-rounded btn-block" ng-disabled='form.$invalid' translate>Login</button>
-      <div class="text-center m-t m-b"><a ui-sref="auth.password" translate class="underline-link">Forgot password?</a></div>
-    </form>
-  </div>
+
+<div class="content-heading">
+	<div class="container">
+		<h1 class="heading">Login Page</h1>
+	</div>
+</div>
+
+<div class="content-inner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
+				<div class="card-wrap">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-header">
+								<div class="card-inner">
+									<h1 class="card-heading">Login</h1>
+								</div>
+							</div>
+							<div class="card-inner">
+								<p class="text-center">
+									<span class="avatar avatar-inline avatar-lg">
+										<img alt="Login" src="assets/images/users/avatar-001.jpg">
+									</span>
+								</p>
+								<form class="form" action="index.html">
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="login-username">Username</label>
+												<input class="form-control" id="login-username" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label" for="login-password">Password</label>
+												<input class="form-control" id="login-password" type="password">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<button class="btn btn-block btn-blue waves-button waves-effect waves-light">Sign In</button>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<div class="checkbox checkbox-adv">
+													<label for="login-remember">
+														<input class="access-hide" id="login-remember" name="login-remember" type="checkbox">Stay signed in
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix">
+					<p class="margin-no-top pull-left"><a href="javascript:void(0)">Need help?</a></p>
+					<p class="margin-no-top pull-right"><a href="javascript:void(0)">Create an account</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

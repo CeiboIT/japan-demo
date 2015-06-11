@@ -11396,7 +11396,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 
 .content {
-  padding-bottom: 24px;
+  /* padding-bottom: 24px; */
 }
 .searching .content {
   display: none;

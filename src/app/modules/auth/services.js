@@ -1,7 +1,7 @@
 /**
  * Created by emiliano on 04/02/15.
  */
-angular.module('lixilApp.auth')
+angular.module('authModule')
     .service('AuthTokenService', function AuthTokenService(gettext, $localStorage, $window, $firebaseAuth, $q, fireRef, fireService) {
 
             var service = this;

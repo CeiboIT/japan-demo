@@ -74,6 +74,6 @@ var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorag
     }
 };
 
-angular.module('lixilApp.auth')
+angular.module('authModule')
     .controller('authCtrl', authCtrl)
     .controller('bgrdCtrl', bgrdCtrl);
