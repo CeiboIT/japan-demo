@@ -33,11 +33,7 @@ var companiesService = function(fireRef, Kutral, $q) {
   }
 
 
-
-
 };
-
-
 
 
 angular.module('companiesModule')

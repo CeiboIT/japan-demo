@@ -12,6 +12,7 @@ angular
 	'ui.bootstrap', 
 	'ngMaterial',
 	// our modules
+	'ceibo.ui.material.side-menu',
 	'landingModule',
 	'homeModule',
 	'citiesModule',
@@ -19,6 +20,7 @@ angular
 	'tasksModule',
 	'worksModule',
 	'authModule',
+	'companiesModule',
   ])
 
   .constant('fireRef', 'https://japan-demo.firebaseio.com/')
