@@ -37,7 +37,7 @@ var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorag
 
     authCtrl.optinUser = function(optin) {
         optin.culture = $localStorage.locale || 'en';
-        
+
         AuthTokenService.optin(optin)
             .then(function() {
                 authCtrl.signUpSuccess = 'Signup registered, please follow the instructions sent to your email address';
@@ -72,6 +72,15 @@ var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorag
             authCtrl.user.repeat = ""
         }
     }
+
+
+    authCtrl.createNewCompany = function(formData) {
+
+
+
+    }
+
+
 };
 
 angular.module('authModule')

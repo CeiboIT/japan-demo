@@ -1,0 +1,23 @@
+{
+  "name": "ceibo-components.auth",
+  "version": "1.0.0",
+  "homepage": "https://github.com/CeiboIT/japan-demo",
+  "authors": [
+    "epotignano <epotignano@gmail.com>"
+  ],
+  "description": "Module that handles all the auth flow in firebase",
+  "keywords": [
+    "Auth",
+    "Firebase",
+    "CeiboIT"
+  ],
+  "license": "Private",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

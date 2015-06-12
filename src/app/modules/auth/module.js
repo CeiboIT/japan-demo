@@ -5,33 +5,32 @@ angular.module('authModule', ['ngStorage'])
 
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
-/*
+
 			.state('auth', {
 				abstract: true,
 				url: '/access',
 				controller : 'bgrdCtrl as bgrd',
-        		templateUrl: 'app/modules/auth/views/accessAbstract.html',
+        templateUrl: 'app/modules/auth/views/accessAbstract.origin.html'
 			})
-*/
-			.state('app.login', {
+
+			.state('auth.login', {
 				url: '/login',
 				controller : 'authCtrl as auth',
-        		templateUrl: 'app/modules/auth/views/login.html',
+        		templateUrl: 'app/modules/auth/views/login.html'
 			})
-			.state('app.signup', {
+			.state('auth.signup', {
 				url: '/signup',
 				controller : 'authCtrl as auth',
-        		templateUrl: 'app/modules/auth/views/signup.html',
+        		templateUrl: 'app/modules/auth/views/signup.html'
 			})
-			.state('app.password', {
+			.state('auth.password', {
 				url: '/password',
 				controller : 'authCtrl as auth',
-        		templateUrl: 'app/modules/auth/views/password.html',
+        		templateUrl: 'app/modules/auth/views/password.html'
 			})
-			.state('app.register', {
+			.state('auth.register', {
 				url: '/register',
 				controller : 'authCtrl as auth',
-        		templateUrl: 'app/modules/auth/views/register.html',
+        		templateUrl: 'app/modules/auth/views/register.html'
 			})
-	})
-	
+	});
