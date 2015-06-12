@@ -5,6 +5,7 @@ var bgrdCtrl = function(){
     var bgrdCtrl = this;
     var rand = Math.floor(Math.random()*(5)+1);
     bgrdCtrl.background = 'background' + rand;
+    alert("ad");
 };
 
 var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorage, $raven) {

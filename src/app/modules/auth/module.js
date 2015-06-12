@@ -6,29 +6,29 @@ angular.module('authModule', ['ngStorage'])
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
 
-			.state('auth', {
+			.state('app.auth', {
 				abstract: true,
 				url: '/access',
 				controller : 'bgrdCtrl as bgrd',
-        templateUrl: 'app/modules/auth/views/accessAbstract.origin.html'
+        		templateUrl: 'app/modules/auth/views/accessAbstract.origin.html'
 			})
 
-			.state('auth.login', {
+			.state('app.auth[login]', {
 				url: '/login',
 				controller : 'authCtrl as auth',
         		templateUrl: 'app/modules/auth/views/login.html'
 			})
-			.state('auth.signup', {
+			.state('app.auth[signup]', {
 				url: '/signup',
 				controller : 'authCtrl as auth',
         		templateUrl: 'app/modules/auth/views/signup.html'
 			})
-			.state('auth.password', {
+			.state('app.auth[password]', {
 				url: '/password',
 				controller : 'authCtrl as auth',
         		templateUrl: 'app/modules/auth/views/password.html'
 			})
-			.state('auth.register', {
+			.state('app.auth[register]', {
 				url: '/register',
 				controller : 'authCtrl as auth',
         		templateUrl: 'app/modules/auth/views/register.html'
