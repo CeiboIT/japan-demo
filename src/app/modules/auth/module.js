@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('authModule', ['ngStorage'])
+angular.module('authModule', ['fireServiceModule'])
 
 	.config(function ($stateProvider, $urlRouterProvider) {
 		$stateProvider
@@ -9,7 +9,6 @@ angular.module('authModule', ['ngStorage'])
 			.state('app.auth', {
 				abstract: true,
 				url: '/access',
-				controller : 'bgrdCtrl as bgrd',
         		templateUrl: 'app/modules/auth/views/accessAbstract.origin.html'
 			})
 

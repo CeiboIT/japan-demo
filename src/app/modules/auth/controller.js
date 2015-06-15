@@ -1,14 +1,10 @@
 /**
  * Created by emiliano on 04/02/15.
  */
-var bgrdCtrl = function(){
-    var bgrdCtrl = this;
-    var rand = Math.floor(Math.random()*(5)+1);
-    bgrdCtrl.background = 'background' + rand;
-    alert("ad");
-};
 
-var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorage, $raven) {
+var authCtrl = function($state, AuthTokenService, $localStorage) {
+
+    console.log("auth controller");
 
     var authCtrl = this;
 
@@ -25,20 +21,29 @@ var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorag
     authCtrl.sendCredentials = function(userCredentials) {
         authCtrl.loginPromise = AuthTokenService.login(userCredentials)
             .then(function() {
+
+                AuthTokenService.getUserData()
+        .then(function(userData) {
+            
+        });
             }, function(error) {
                 if(error.code.indexOf('INVALID_') !== -1){
-                    authCtrl.error = 'Wrong Email / Password combination';
+                    authCtrl.error = 'Email o Password incorrectos';
                 }
                 else{
                     $raven.captureException(error);
-                    authCtrl.error = 'Lixil Link is experiencing issues, please try again later';
+                    authCtrl.error = 'Nuestra tienda esta presentando problemas de funcionamiento, disculpe las molestias.';
                 }
             });
     };
 
-    authCtrl.optinUser = function(optin) {
-        optin.culture = $localStorage.locale || 'en';
+    authCtrl.toggleFotgonPass = function(){
+        authCtrl.forgot = !authCtrl.forgot;
+    }
 
+    authCtrl.optinUser = function(optin) {
+        console.log(optin)
+        optin.culture = $localStorage.locale || 'es';
         AuthTokenService.optin(optin)
             .then(function() {
                 authCtrl.signUpSuccess = 'Signup registered, please follow the instructions sent to your email address';
@@ -73,17 +78,7 @@ var authCtrl = function($state, AuthTokenService, toaster, gettext, $localStorag
             authCtrl.user.repeat = ""
         }
     }
-
-
-    authCtrl.createNewCompany = function(formData) {
-
-
-
-    }
-
-
 };
 
 angular.module('authModule')
-    .controller('authCtrl', authCtrl)
-    .controller('bgrdCtrl', bgrdCtrl);
+    .controller('authCtrl', authCtrl);

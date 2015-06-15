@@ -2,9 +2,10 @@
  * Created by emiliano on 04/02/15.
  */
 angular.module('authModule')
-    .service('AuthTokenService', function AuthTokenService(gettext, $localStorage, $window, $firebaseAuth, $q, fireRef, fireService) {
+    .service('AuthTokenService', function AuthTokenService($localStorage, $window, $firebaseAuth, $q, fireRef, fireService) {
 
             var service = this;
+            var key = 'uid';
 
             var ref = new Firebase(fireRef);
             var auth = $firebaseAuth(ref);
@@ -57,6 +58,52 @@ angular.module('authModule')
 
                 return authPromise.promise;
             };
+
+            service.getUserData = function(userId) {
+
+                var userDataPromise = $q.defer();
+                console.log($localStorage)
+                //don't ask to the server if we don't need it
+                if(!$localStorage[key]){
+                    userDataPromise.reject();
+                }
+                else{
+
+                //if we're asking for ourselves
+                if (!userId) {
+                    //try to get it from memory
+                    var user = service.userData;
+                    var userId = service.getId();
+
+                    //by convention, let's call the service.getUserData without params for search for ourselves
+                    //if the data were not in memory, let's ask to the server
+                    //also if we had a different data in memory instead of the one that we were looking
+
+                    if (!user) {
+                        userModel.find({
+                            "$id": service.getId()
+                        }, function(data) {
+                            service.setUserDataInMemory(data);
+                            userDataPromise.resolve(data);
+                        })
+                    } else {
+                        //sends the user that we had in memory
+                        userDataPromise.resolve(user)
+                    }
+                } else {
+                    //if we're asking for a other user, always we will have to go to the server
+                    userModel.find({
+                        "email": userId
+                    }, function(data) {
+                        var dataKey = Object.keys(data)[0];
+                        userDataPromise.resolve(data[dataKey]);
+                    })
+
+                }
+            }
+                return userDataPromise.promise;
+        }
+
             service.changePassword = function(userCredentials){
                 var passwordPromise = $q.defer();
                 auth.$changePassword(userCredentials).
