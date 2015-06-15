@@ -14,7 +14,7 @@ angular.module('authModule', ['fireServiceModule'])
 
 			.state('app.auth[login]', {
 				url: '/login',
-				controller : 'authCtrl as auth',
+				controller : 'authCtrl as login',
         		templateUrl: 'app/modules/auth/views/login.html'
 			})
 			.state('app.auth[signup]', {
@@ -29,7 +29,7 @@ angular.module('authModule', ['fireServiceModule'])
 			})
 			.state('app.auth[register]', {
 				url: '/register',
-				controller : 'authCtrl as auth',
+				controller : 'authCtrl as register',
         		templateUrl: 'app/modules/auth/views/register.html'
 			})
 	});
