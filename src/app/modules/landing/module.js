@@ -4,13 +4,19 @@
 angular.module('landingModule', [])
 
 	.config(function ($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/404');
 
 		$stateProvider
 			.state('app', {
 				abstract: true,
 				controller : 'landingCtrl as landing',
         		templateUrl: 'app/modules/landing/views/landing.html',
+			})
+
+			.state('app.404', {
+				url: '/404',
+				//controller : 'xxxCtrl as xxx',
+        		templateUrl: '404.html'
 			})
 
 	})
