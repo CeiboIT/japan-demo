@@ -9,8 +9,13 @@ angular.module('companiesModule', [])
     $stateProvider
       .state('app.registerCompany', {
         url: '/company/register',
-        controller : 'companyRegisterCtrl as register',
+        controller : 'companiesCtrl as register',
         templateUrl: 'app/modules/companies/views/registerCompany.html'
+      })
+      .state('app.addCompanyInformation', {
+        url: '/company/addinfo',
+        controller : 'companiesCtrl as information',
+        templateUrl: 'app/modules/companies/views/addCompanyInformation.html'
       })
 
   })

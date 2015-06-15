@@ -22,4 +22,9 @@ angular.module('authModule', ['fireServiceModule'])
 				controller : 'authCtrl as register',
         		templateUrl: 'app/modules/auth/views/register.html'
 			})
+			.state('app.auth[addUserInformation]', {
+				url: '/register/addinfo',
+				controller : 'authCtrl as register',
+        		templateUrl: 'app/modules/auth/views/addUserInformation.html'
+			})
 	});
