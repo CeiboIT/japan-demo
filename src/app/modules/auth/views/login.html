@@ -12,50 +12,86 @@
 				<div class="card-wrap">
 					<div class="card">
 						<div class="card-main">
-							<div class="card-header">
-								<div class="card-inner">
-									<h1 class="card-heading">Login</h1>
+
+							<span ng-hide="login.forgot">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Login</h1>
+									</div>
 								</div>
-							</div>
-							<div class="card-inner">
-								<p class="text-center">
-									<span class="avatar avatar-inline avatar-lg">
-										<img alt="Login" src="assets/images/users/avatar-001.jpg">
-									</span>
-								</p>
+								<div class="card-inner">
+									<p class="text-center">
+										<span class="avatar avatar-inline avatar-lg">
+											<img alt="Login" src="assets/images/users/avatar-001.jpg">
+										</span>
+									</p>
 
-								<form class="form" action="">
-									<div class="form-group form-group-label">
-										<div class="row">
-											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">Email</label>
-												<input class="form-control" type="email" name="email" ng-model="login.optin.email" required>
+									<form class="form" name="form" action="" novalidate>
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<label class="floating-label">Email</label>
+													<input class="form-control" type="email" name="email" ng-model="login.optin.email" required>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="form-group form-group-label">
-										<div class="row">
-											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">Password</label>
-												<input class="form-control" type="password" name="password" ng-model="login.optin.password" required>
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<label class="floating-label">Password</label>
+													<input class="form-control" type="password" name="password" ng-model="login.optin.password" required>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-md-10 col-md-push-1">
-												<button class="btn btn-block btn-blue waves-button waves-effect waves-light" type="submit" ng-click="login.sendCredentials(login.optin)" ng-disabled="form.$invalid">Sign In</button>
-											</div>
-										</div>
-									</div>
-								</form>
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<button class="btn btn-block btn-blue waves-button waves-effect waves-light" type="submit" ng-click="login.sendCredentials(login.optin)" ng-disabled="form.$invalid">Sign In</button>
+													                  <a ng-click="login.toggleFotgonPass();">¿Olvidó su contraseña?</a>
 
-							</div>
+												</div>
+											</div>
+										</div>
+									</form>
+
+								</div>
+							</span>
+
+							<span ng-show="login.forgot">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">Password recover</h1>
+										<p>We will send you an email to recover your password.</p>
+									</div>
+								</div>
+								<div class="card-inner">
+
+									<form class="form" name="formPassword" action="" novalidate>
+										<div class="form-group form-group-label">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<label class="floating-label">Email</label>
+													<input class="form-control" type="email" name="email" ng-model="login.optin.email" required>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-10 col-md-push-1">
+													<button class="btn btn-block btn-blue waves-button waves-effect waves-light" type="submit" ng-click="login.resetCredentials(login.optin)" ng-disabled="formPassword.$invalid">Recover</button>
+						                			<span class="note">or <a ng-click="login.toggleFotgonPass();">Cancel</a></span>
+												</div>
+											</div>
+										</div>
+									</form>
+
+								</div>
+							</span>
+
 						</div>
 					</div>
 				</div>
 				<div class="clearfix">
-					<p class="margin-no-top pull-left"><a href="javascript:void(0)">Forgot your password?</a></p>
 					<p class="margin-no-top pull-right"><a href="javascript:void(0)">Create an account</a></p>
 				</div>
 			</div>

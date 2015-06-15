@@ -17,16 +17,6 @@ angular.module('authModule', ['fireServiceModule'])
 				controller : 'authCtrl as login',
         		templateUrl: 'app/modules/auth/views/login.html'
 			})
-			.state('app.auth[signup]', {
-				url: '/signup',
-				controller : 'authCtrl as auth',
-        		templateUrl: 'app/modules/auth/views/signup.html'
-			})
-			.state('app.auth[password]', {
-				url: '/password',
-				controller : 'authCtrl as auth',
-        		templateUrl: 'app/modules/auth/views/password.html'
-			})
 			.state('app.auth[register]', {
 				url: '/register',
 				controller : 'authCtrl as register',

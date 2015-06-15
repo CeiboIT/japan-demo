@@ -7,7 +7,7 @@
 			</a>
 		</li>
 	</ul>
-	<a class="header-logo" href="#/">RAPIDO</a>
+	<a class="header-logo" ui-sref="app.home">RAPIDO</a>
 	<ul class="nav nav-list pull-right">
 		<li>
 			<a data-toggle="menu" href=".profileNav">
@@ -37,16 +37,10 @@
 			<div class="menu-content">
 				<ul class="nav">
 					<li>
-						<a href="#/login"><span class="icon icon-account-box"></span>Login</a>
+						<a ui-sref="app.auth[login]"><span class="icon icon-account-box"></span>Login</a>
 					</li>
 					<li>
-						<a href="#/signup"><span class="icon icon-account-box"></span>Signup</a>
-					</li>
-					<li>
-						<a href="#/password"><span class="icon icon-account-box"></span>Recover Password</a>
-					</li>
-					<li>
-						<a href="#/register"><span class="icon icon-account-box"></span>Register</a>
+						<a ui-sref="app.auth[register]"><span class="icon icon-account-box"></span>Register</a>
 					</li>
 					<li>
 						<a href=""><span class="icon icon-account-box"></span>Profile Settings</a>

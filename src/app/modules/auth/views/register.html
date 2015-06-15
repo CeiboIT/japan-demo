@@ -1,6 +1,47 @@
 
 <div class="content-heading">
-    <div class="container">
-        <h1 class="heading">Register</h1>
-    </div>
+	<div class="container">
+		<h1 class="heading">Registration Page</h1>
+	</div>
+</div>
+
+<div class="content-inner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
+				<div class="card-wrap">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-header">
+								<div class="card-inner">
+									<h1 class="card-heading">Register</h1>
+								</div>
+							</div>
+							<div class="card-inner">
+								<form class="form" action="" novalidate>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label">Email</label>
+												<input class="form-control" type="email" name="email" ng-model="register.optin.email" required>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<button class="btn btn-block btn-blue waves-button waves-effect waves-light" ng-click="register.optinUser(register.optin)" type="submit" ng-click="login.sendCredentials(login.optin)" ng-disabled="form.$invalid">Register</button>
+												<span class="note">or <a ui-sref="app.home">return to homepage</a></span>
+											</div>
+										</div>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
