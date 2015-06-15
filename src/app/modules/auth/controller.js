@@ -32,7 +32,7 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
                 }
                 else{
                     $raven.captureException(error);
-                    authCtrl.error = 'Nuestra tienda esta presentando problemas de funcionamiento, disculpe las molestias.';
+                    authCtrl.error = 'Retry later';
                 }
             });
     };
