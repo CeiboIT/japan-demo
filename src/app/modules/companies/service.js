@@ -17,11 +17,15 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var companiesDirectory = kutral.model('companies', companySchema);
 
-  service.showCompanies = function() {
-    var companiesList = companiesDirectory.find().$asArray();
+  service.showCompanies = function(){
+    var companiesPromise = $q.defer();
+    
+    companiesDirectory.find().$asArray(function(data) {
+      companiesPromise.resolve(data);
+    });
 
-    return companiesList;
-  };
+    return companiesPromise.promise;
+  }
 
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
