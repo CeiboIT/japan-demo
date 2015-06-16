@@ -49,13 +49,11 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   };
 
-  service.checkCompanyTitleAvailability = function(title) {
+  service.checkCompanyTitleAvailability = function(name) {
       var titleAvailabilityPromise = $q.defer();
-
-      fireService.find('companies', title)
-          .then(function(companyData) {
-              titleAvailabilityPromise.resolve(!companyData.exists);
-          });
+      companiesDirectory.find({"name" : name}, function(companyData) {
+        titleAvailabilityPromise.resolve(!companyData)
+      });
 
       return titleAvailabilityPromise.promise;
   };
