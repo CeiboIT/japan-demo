@@ -3,17 +3,29 @@
  */
 
 
-var companiesService = function(fireRef, Kutral, $q) {
+var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var service = this;
 
   var kutral  = new Kutral(fireRef);
 
-  var companiesDirectory = kutral.model('companies', {});
+  var companySchema = new Kutral.Schema({
+      'title': {type: String, indexOn: true},
+      'owner': {type: 'ObjectId', ref:'users'},
+      'members': [{type: 'ObjectId', ref:'users'}]
+  });
 
-  service.createCompany = function(companyName) {
+  var companiesDirectory = kutral.model('companies', companySchema);
+
+  service.showCompanies = function() {
+    var companiesList = companiesDirectory.find().$asArray();
+
+    return companiesList;
+  };
+
+  service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
-    companiesDirectory.create({name : companyName, members: []}, function(createdCompany) {
+    companiesDirectory.create({name : companyName, owner: owner,members: []}, function(createdCompany) {
       companyCreationPromise.resolve(createdCompany);
     });
 

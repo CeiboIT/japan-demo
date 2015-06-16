@@ -3,7 +3,7 @@
  */
 
 
-angular.module('companiesModule', [])
+angular.module('companiesModule', ['firebase', 'fireQuery'])
   .config(function($stateProvider) {
     //No unir con el auth module, ya que esto sera particular para esta solucion.
     $stateProvider
@@ -16,6 +16,11 @@ angular.module('companiesModule', [])
         url: '/company/addinfo',
         controller : 'companiesCtrl as information',
         templateUrl: 'app/modules/companies/views/addCompanyInformation.html'
+      })
+      .state('app.companiesList', {
+        url: '/company/list',
+        controller : 'companiesCtrl as information',
+        templateUrl: 'app/modules/companies/views/companiesList.html'
       })
 
   })
