@@ -17,11 +17,15 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var companiesDirectory = kutral.model('companies', companySchema);
 
-  service.showCompanies = function() {
-    var companiesList = companiesDirectory.find().$asArray();
+  service.showCompanies = function(){
+    var companiesPromise = $q.defer();
 
-    return companiesList;
-  };
+    companiesDirectory.find().$asArray(function(data) {
+      companiesPromise.resolve(data);
+    });
+
+    return companiesPromise.promise;
+  }
 
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
@@ -30,7 +34,7 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
       companyCreationPromise.resolve(createdCompany);
     });
 
-    return companyCreationPromise.promise
+    return companyCreationPromise.promise;
   };
 
   service.updateCompany = function(dataToUpdate) {
@@ -43,7 +47,20 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
     return updateArticlePromise.promise;
 
-  }
+  };
+
+  service.checkCompanyTitleAvailability = function(title) {
+      var titleAvailabilityPromise = $q.defer();
+
+      fireService.find('companies', title)
+          .then(function(companyData) {
+              titleAvailabilityPromise.resolve(!companyData.exists);
+          });
+
+      return titleAvailabilityPromise.promise;
+  };
+
+
 
 
 };

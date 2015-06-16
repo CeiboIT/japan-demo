@@ -3,14 +3,14 @@
 angular
   .module('jpndemo', [
 	// third party modules
-	'ngAnimate', 
-	'ngCookies', 
-	'ngTouch', 
-	'ngSanitize', 
+	'ngAnimate',
+	'ngCookies',
+	'ngTouch',
+	'ngSanitize',
 	'ngResource',
-	'ngStorage', 
-	'ui.router', 
-	'ui.bootstrap', 
+	'ngStorage',
+	'ui.router',
+	'ui.bootstrap',
 	'ngMaterial',
 	'firebase',
 	'fireQuery',
@@ -24,7 +24,7 @@ angular
 	'tasksModule',
 	'worksModule',
 	'authModule',
-	'companiesModule',
+	'companiesModule'
   ])
 
   .constant('fireRef', 'https://japan-demo.firebaseio.com/')
