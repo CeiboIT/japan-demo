@@ -25,7 +25,8 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
-    companiesDirectory.create({name : companyName, owner: owner,members: []}, function(createdCompany) {
+    companiesDirectory.data = {name : companyName, owner: owner,members: []}
+    companiesDirectory.create(function(createdCompany) {
       companyCreationPromise.resolve(createdCompany);
     });
 
