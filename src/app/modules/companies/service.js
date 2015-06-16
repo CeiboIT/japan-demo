@@ -29,11 +29,11 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
-    companiesDirectory.create({name : companyName, owner: owner,members: []}, function(createdCompany) {
+    companiesDirectory.create({name : companyName, owner: owner, members: []}, function(createdCompany) {
       companyCreationPromise.resolve(createdCompany);
     });
 
-    return companyCreationPromise.promise
+    return companyCreationPromise.promise;
   };
 
   service.updateCompany = function(dataToUpdate) {
@@ -46,7 +46,20 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
     return updateArticlePromise.promise;
 
-  }
+  };
+
+  service.checkCompanyTitleAvailability = function(title) {
+      var titleAvailabilityPromise = $q.defer();
+
+      fireService.find('companies', title)
+          .then(function(companyData) {
+              titleAvailabilityPromise.resolve(!companyData.exists);
+          });
+
+      return titleAvailabilityPromise.promise;
+  };
+
+
 
 
 };
