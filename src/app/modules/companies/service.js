@@ -27,6 +27,16 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
     return companiesPromise.promise;
   }
 
+  service.getCompanyById = function(id){
+    var getCompanyByIdPromise = $q.defer();
+ 
+    companiesDirectory.find({$id:id}, function(data) {
+      getCompanyByIdPromise.resolve(data);
+    });
+ 
+    return getCompanyByIdPromise.promise;
+  }
+
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
     companiesDirectory.data = {name : companyName, owner: owner,members: []}

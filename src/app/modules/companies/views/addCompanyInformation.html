@@ -22,8 +22,16 @@
 									<div class="form-group form-group-label">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">more information</label>
-												<input class="form-control" id="company-name" type="text">
+												<label class="input-small-label">company's name</label>
+												<input class="form-control" id="company-name" ng-model="information.companies.name" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="input-small-label">owner's email</label>
+												<input class="form-control ng-pristine" id="company-ownerEmail" ng-model="information.companies.owner" type="email">
 											</div>
 										</div>
 									</div>
@@ -54,7 +62,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<button class="btn btn-block btn-blue waves-button waves-effect waves-light">Add information</button>
+												<button class="btn btn-block btn-blue waves-button waves-effect waves-light">Save information</button>
 											</div>
 										</div>
 									</div>
