@@ -14,7 +14,7 @@
 						<div class="card-main">
 							<div class="card-header">
 								<div class="card-inner">
-									<h1 class="card-heading">Company information</h1>
+									<h1 class="card-heading">Update information</h1>
 								</div>
 							</div>
 							<div class="card-inner">
@@ -23,7 +23,7 @@
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
 												<label class="input-small-label">company's name</label>
-												<input class="form-control" ng-model="information.companies.name" type="text">
+												<input class="form-control" ng-model="update.companies.name" type="text">
 											</div>
 										</div>
 									</div>
@@ -31,30 +31,30 @@
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
 												<label class="input-small-label">owner's email</label>
-												<input class="form-control ng-pristine" ng-model="information.companies.owner" type="email">
+												<input class="form-control ng-pristine" ng-model="update.companies.owner" type="email">
 											</div>
 										</div>
 									</div>
 									<div class="form-group form-group-label">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">type</label>
-												<input class="form-control" ng-model="information.companies.type" type="text">
+												<label class="input-small-label">type</label>
+												<input class="form-control" ng-model="update.companies.type" type="text">
 											</div>
 										</div>
 									</div>
 									<div class="form-group form-group-label">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">since</label>
-												<input class="form-control" ng-model="information.companies.since" type="number">
+												<label class="input-small-label">since</label>
+												<input class="form-control" ng-model="update.companies.since" type="number">
 											</div>
 										</div>
 									</div>
 									<div class="form-group form-group-label">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">more information</label>
+												<label class="input-small-label">more information</label>
 												<input class="form-control" type="text" disabled>
 											</div>
 										</div>
@@ -62,7 +62,7 @@
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<label ng-click="information.updateCompany(information.companies)" class="btn btn-block btn-blue waves-button waves-effect waves-light">Save information</label>
+												<label ng-click="update.updateCompany(update.companies)" class="btn btn-block btn-blue waves-button waves-effect waves-light">Save information</label>
 											</div>
 										</div>
 									</div>
