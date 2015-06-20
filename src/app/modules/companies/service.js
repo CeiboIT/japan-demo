@@ -69,8 +69,6 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
   };
 
 
-
-
 };
 
 

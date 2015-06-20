@@ -23,7 +23,7 @@
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
 												<label class="input-small-label">company's name</label>
-												<input class="form-control" id="company-name" ng-model="information.companies.name" type="text">
+												<input class="form-control" ng-model="information.companies.name" type="text">
 											</div>
 										</div>
 									</div>
@@ -31,7 +31,23 @@
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
 												<label class="input-small-label">owner's email</label>
-												<input class="form-control ng-pristine" id="company-ownerEmail" ng-model="information.companies.owner" type="email">
+												<input class="form-control ng-pristine" ng-model="information.companies.owner" type="email">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label">type</label>
+												<input class="form-control" ng-model="information.companies.type" type="text">
+											</div>
+										</div>
+									</div>
+									<div class="form-group form-group-label">
+										<div class="row">
+											<div class="col-md-10 col-md-push-1">
+												<label class="floating-label">since</label>
+												<input class="form-control" ng-model="information.companies.since" type="number">
 											</div>
 										</div>
 									</div>
@@ -39,30 +55,14 @@
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
 												<label class="floating-label">more information</label>
-												<input class="form-control" id="company-ownerEmail" type="password">
-											</div>
-										</div>
-									</div>
-									<div class="form-group form-group-label">
-										<div class="row">
-											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">more information</label>
-												<input class="form-control" id="company-ownerEmail" type="password">
-											</div>
-										</div>
-									</div>
-									<div class="form-group form-group-label">
-										<div class="row">
-											<div class="col-md-10 col-md-push-1">
-												<label class="floating-label">more information</label>
-												<input class="form-control" id="company-ownerEmail" type="password">
+												<input class="form-control" type="text" disabled>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-md-10 col-md-push-1">
-												<button class="btn btn-block btn-blue waves-button waves-effect waves-light">Save information</button>
+												<label ng-click="information.updateCompany(information.companies)" class="btn btn-block btn-blue waves-button waves-effect waves-light">Save information</label>
 											</div>
 										</div>
 									</div>

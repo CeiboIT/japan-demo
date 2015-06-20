@@ -17,6 +17,16 @@ var companiesCtrl = function(companiesService, param1) {
             });
     };
 
+    company.updateCompany = function(dataToUpdate) {
+        company.updateCompany = companiesService.updateCompany(dataToUpdate)
+            .then (function() {
+                console.log("update ok");
+            }, function(error) {
+                company.error = error;
+                console.log("update no ok", company.error);
+            });
+    };
+
 
 	function init() {
 
