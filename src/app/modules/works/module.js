@@ -10,8 +10,9 @@ angular.module('worksModule', [])
 				controller : 'worksCtrl as register',
 				templateUrl: 'app/modules/companies/views/registerWork.html',
 				resolve: {
-					param1 : function() {
-						return null
+					param1 : function(companiesService, $stateParams) {
+						var companyId = $stateParams.companyId;
+						return companiesService.getCompanyById(companyId)
 					}
 				}
 			})
@@ -32,8 +33,8 @@ angular.module('worksModule', [])
 				templateUrl: 'app/modules/companies/views/updateWork.html',
 				resolve: {
 					param1 : function(companiesService, $stateParams) {
-						var companyId = $stateParams.companyId;
-						return companiesService.getCompanyById(companyId)
+						var workId = $stateParams.workId;
+						return worksService.getWorkById(workId)
 					}
 				}
 			})

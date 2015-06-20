@@ -1,7 +1,5 @@
-/**
- * Created by emiliano on 12/06/15.
- */
 
+'use strict';
 
 var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
@@ -39,7 +37,7 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
-    companiesDirectory.data = {name : companyName, owner: owner,members: []}
+    companiesDirectory.data = {name : companyName, owner: owner, members: []}
     companiesDirectory.create(function(createdCompany) {
       companyCreationPromise.resolve(createdCompany);
     });
