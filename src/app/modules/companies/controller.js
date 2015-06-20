@@ -7,8 +7,8 @@ var companiesCtrl = function(companiesService, param1) {
 
     company.companies = param1;
 
-    company.createCompany = function(companyName, owner) {
-        company.createPromise = companiesService.createCompany(companyName, owner)
+    company.createCompany = function(company) {
+        company.createPromise = companiesService.createCompany(company)
             .then(function() {
 				//console.log("company created");
             }, function(error) {

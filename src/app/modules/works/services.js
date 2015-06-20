@@ -36,9 +36,9 @@ var worksService = function(fireRef, Kutral, $q, $firebaseArray) {
     return getWorkByIdPromise.promise;
   }
 
-  service.createWork = function(workName) {
+  service.createWork = function(work) {
     var workCreationPromise = $q.defer();
-    worksDirectory.data = {name : workName, members: []}
+    worksDirectory.data = work;
     worksDirectory.create(function(createdWork) {
       workCreationPromise.resolve(createdWork);
     });

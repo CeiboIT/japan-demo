@@ -7,8 +7,8 @@ console.log("works controller");
 
     work.works = param1.works;
 
-    work.createWork = function(workName) {
-        work.createPromise = worksService.createWork(workName)
+    work.createWork = function(work) {
+        work.createPromise = worksService.createWork(work)
             .then(function(data) {
 				//console.log("work: ", data);
 				if (param1.works) {

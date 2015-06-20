@@ -1,6 +1,42 @@
 
 <div class="content-heading">
-    <div class="container">
-        <h1 class="heading">Works</h1>
-    </div>
+	<div class="container">
+		<h1 class="heading">Works</h1>
+	</div>
+</div>
+
+<div class="content-inner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-push-2 col-sm-10 col-sm-push-1">
+				<div class="card-wrap">
+					<div class="card">
+						<div class="card-main">
+							<div class="card-header">
+								<div class="card-inner">
+									<h1 class="card-heading">Information</h1>
+								</div>
+							</div>
+							<div class="card-inner">
+
+							<p ng-hide="list.works">
+								There are none works yet!
+							</p>
+							<p ng-repeat="item in list.works">
+								Work {{$index+1}}: <b>{{item}}</b> | 
+							<!--
+								<a href="#/work/update/{{item.$id}}"> update information</a> | 
+								<a href="#/task/list/{{item.$id}}"> show tasks</a> | 
+								<a href="#/task/register/{{item.$id}}"> add task</a>
+							-->
+						
+							</p>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
