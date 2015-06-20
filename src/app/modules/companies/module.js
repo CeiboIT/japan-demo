@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('companiesModule', ['firebase', 'fireQuery'])
+angular.module('companiesModule', [])
 
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider

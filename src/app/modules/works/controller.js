@@ -7,6 +7,14 @@ console.log("works controller");
 
     work.works = param1.works;
 
+    work.options = {
+        types: '(cities)',
+        watchEnter: true,
+        //country: 'ar'
+    };
+
+    work.details;
+
     work.createWork = function(work) {
         work.createPromise = worksService.createWork(work)
             .then(function(data) {

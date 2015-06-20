@@ -14,6 +14,7 @@ angular
 	'ngMaterial',
 	'firebase',
 	'fireQuery',
+	'ngAutocomplete',
 	// our modules
 	'config',
 	'ceibo.ui.material.side-menu',
