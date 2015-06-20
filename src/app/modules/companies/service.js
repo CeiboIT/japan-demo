@@ -10,7 +10,8 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
   var companySchema = new Kutral.Schema({
       'title': {type: String, indexOn: true},
       'owner': {type: 'ObjectId', ref:'users'},
-      'members': [{type: 'ObjectId', ref:'users'}]
+      'works': [{type: 'ObjectId', ref:'works'}],
+      'members': [{type: 'ObjectId', ref:'users'}],
   });
 
   var companiesDirectory = kutral.model('companies', companySchema);
@@ -37,7 +38,7 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   service.createCompany = function(companyName, owner) {
     var companyCreationPromise = $q.defer();
-    companiesDirectory.data = {name : companyName, owner: owner, members: []}
+    companiesDirectory.data = {name : companyName, owner: owner}
     companiesDirectory.create(function(createdCompany) {
       companyCreationPromise.resolve(createdCompany);
     });

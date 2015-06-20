@@ -1,18 +1,47 @@
 
 'use strict';
 
-var worksCtrl = function() {
-	var works = this;
+var worksCtrl = function(worksService, companiesService, param1) {
+console.log("works controller");
+	var work = this;
+
+    work.works = param1.works;
+
+    work.createWork = function(workName) {
+        work.createPromise = worksService.createWork(workName)
+            .then(function(data) {
+				//console.log("work: ", data);
+				if (param1.works) {
+					param1.works.push(data.id);
+				} else {
+					param1.works = [];
+					param1.works.push(data.id);
+				}
+				companiesService.updateCompany(param1);
+            }, function(error) {
+                work.error = error;
+                //console.log("error creating work", work.error);
+            });
+    };
+
+    work.updateWork = function(dataToUpdate) {
+        work.updateWork = worksService.updateWork(dataToUpdate)
+            .then (function() {
+                console.log("update ok");
+            }, function(error) {
+                work.error = error;
+                console.log("update no ok", work.error);
+            });
+    };
 
 	function init() {
-		console.log("works controller");
+    	
 	};
 
 	//INITIALIZING
 	init()
+
 };
 
-angular
-	.module('worksModule')
-	.controller('worksCtrl', worksCtrl)
-
+angular.module('worksModule')
+  .controller('worksCtrl', worksCtrl);

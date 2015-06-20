@@ -8,7 +8,7 @@ angular.module('worksModule', [])
 			.state('app.registerWork', {
 				url: '/work/register/:companyId',
 				controller : 'worksCtrl as register',
-				templateUrl: 'app/modules/companies/views/registerWork.html',
+				templateUrl: 'app/modules/works/views/registerWork.html',
 				resolve: {
 					param1 : function(companiesService, $stateParams) {
 						var companyId = $stateParams.companyId;
@@ -30,7 +30,7 @@ angular.module('worksModule', [])
 			.state('app.updateWork', {
 				url: '/work/update/:workId',
 				controller : 'worksCtrl as update',
-				templateUrl: 'app/modules/companies/views/updateWork.html',
+				templateUrl: 'app/modules/works/views/updateWork.html',
 				resolve: {
 					param1 : function(companiesService, $stateParams) {
 						var workId = $stateParams.workId;
