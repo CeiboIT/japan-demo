@@ -29,10 +29,20 @@
 				</nav>
 				<div class="tab-content">
 					<div class="tab-pane fade active in first-tab">
-						<p>Register a <a ui-sref="app.registerCompany">new company</a>!</p>
-						<p>Show <a ui-sref="app.listCompanies">registered companies</a></p>
-
-						<br>
+		
+						<div class="dropdown-wrap">
+							<div class="dropdown dropdown-inline">
+								<a class="btn dropdown-toggle-btn" data-toggle="dropdown">Companies<span class="icon icon-keyboard-arrow-down margin-left-half"></span></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a ui-sref="app.registerCompany">Register a new company</a>
+									</li>
+									<li>
+										<a ui-sref="app.listCompanies">Show registered companies</a>
+									</li>
+								</ul>
+							</div>
+						</div>
 
 						<!--
 						<p>Go to Cities <a ui-sref="app.cities">here</a>!</p>
