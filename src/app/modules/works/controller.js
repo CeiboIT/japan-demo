@@ -1,11 +1,30 @@
 
 'use strict';
 
-var worksCtrl = function(worksService, companiesService, param1) {
+var worksCtrl = function(worksService, companiesService, param1, param2) {
 console.log("works controller");
 	var work = this;
 
-    work.works = param1.works;
+    if (param1 !== null) {
+        work.works = param1; // all work ids
+    }
+
+    if (param2 !== null) {
+        work.allworks = param2; // all full works
+
+        // wire-style populate
+        work.workspop = [];
+
+        for (var id in work.works.works) { // para cada id
+            for (var fullwork in work.allworks) {
+                if (work.works.works[id] == work.allworks[fullwork].$id) {
+                    work.workspop.push(work.allworks[fullwork]);
+                }
+            }
+        }
+    }
+
+
 
     work.options = {
         types: '(cities)',

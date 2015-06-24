@@ -10,6 +10,7 @@ var worksService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var workSchema = new Kutral.Schema({
       'title': {type: String, indexOn: true},
+      'location': {type: String},
       'members': [{type: 'ObjectId', ref:'users'}],
       'tasks': [{type: 'ObjectId', ref:'tasks'}],
   });

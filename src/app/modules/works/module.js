@@ -13,6 +13,9 @@ angular.module('worksModule', [])
 					param1 : function(companiesService, $stateParams) {
 						var companyId = $stateParams.companyId;
 						return companiesService.getCompanyById(companyId)
+					},
+					param2 : function(){
+						return null
 					}
 				}
 			})
@@ -24,6 +27,9 @@ angular.module('worksModule', [])
 					param1 : function(companiesService, $stateParams) {
 						var companyId = $stateParams.companyId;
 						return companiesService.getCompanyById(companyId)
+					},
+					param2 : function(worksService) {
+                        return worksService.showWorks()
 					}
 				}
 			})
@@ -32,9 +38,12 @@ angular.module('worksModule', [])
 				controller : 'worksCtrl as update',
 				templateUrl: 'app/modules/works/views/updateWork.html',
 				resolve: {
-					param1 : function(companiesService, $stateParams) {
+					param1 : function(worksService, $stateParams) {
 						var workId = $stateParams.workId;
 						return worksService.getWorkById(workId)
+					},
+					param2 : function(){
+						return null
 					}
 				}
 			})

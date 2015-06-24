@@ -19,17 +19,15 @@
 							</div>
 							<div class="card-inner">
 
-							<p ng-hide="list.works">
-								There are none works yet!
+							<p ng-hide="list.workspop.length">
+								There are none works yet! Please reload the page later
 							</p>
-							<p ng-repeat="item in list.works">
-								Work {{$index+1}}: <b>{{item}}</b> | 
-							<!--
+							<p ng-repeat="item in list.workspop">
+								Work name: <b>{{item.name}}</b> <br>
+								Location: <b>{{item.location}}</b> <br>
 								<a href="#/work/update/{{item.$id}}"> update information</a> | 
 								<a href="#/task/list/{{item.$id}}"> show tasks</a> | 
 								<a href="#/task/register/{{item.$id}}"> add task</a>
-							-->
-						
 							</p>
 
 							</div>
