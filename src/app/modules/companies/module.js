@@ -10,7 +10,7 @@ angular.module('companiesModule', [])
                 controller : 'companiesCtrl as register',
                 templateUrl: 'app/modules/companies/views/registerCompany.html',
                 resolve: {
-                    param1 : function() {
+                    param1: function() {
                         return null
                     }
                 }

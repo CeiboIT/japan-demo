@@ -19,8 +19,11 @@
 							</div>
 							<div class="card-inner">
 
+							<p ng-hide="list.companies.length">
+								There are none companies yet! Please reload the page later
+							</p>
 							<p ng-repeat="item in list.companies">
-								<b>{{item.name}}</b> - {{item.owner}} | 
+								<b>{{item.name}}</b> - {{item.owner}} <br>
 								<a href="#/company/update/{{item.$id}}"> update information</a> | 
 								<a href="#/work/list/{{item.$id}}"> show works</a> | 
 								<a href="#/work/register/{{item.$id}}"> add work</a>

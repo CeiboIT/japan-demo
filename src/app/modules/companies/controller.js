@@ -5,7 +5,9 @@ var companiesCtrl = function(companiesService, param1) {
 
 	var company = this;
 
-    company.companies = param1;
+    if (param1 !== null) {
+        company.companies = param1;
+    }
 
     company.createCompany = function(company) {
         company.createPromise = companiesService.createCompany(company)

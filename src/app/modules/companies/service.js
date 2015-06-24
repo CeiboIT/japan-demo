@@ -18,13 +18,37 @@ var companiesService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   service.showCompanies = function(){
     var companiesPromise = $q.defer();
-
-    companiesDirectory.find().$asArray(function(data) {
+    
+    companiesDirectory.find().$asArray(function(data) {     
       companiesPromise.resolve(data);
     });
 
     return companiesPromise.promise;
   }
+
+
+
+/*
+    service.searchProducts = function(title, selectedCategorie){
+      var searchProductsPromise = $q.defer();
+      instantiateModels().then(function() {
+        publishedProducts.match({$and: [{"title":title}]}).populate("categories", function(data) {
+
+          for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+              data[key].$id = key;
+            }
+          }
+          
+          searchProductsPromise.resolve(resultsToArray(data));
+        });
+      })
+      return searchProductsPromise.promise;
+    }
+*/
+
+
+
 
   service.getCompanyById = function(id){
     var getCompanyByIdPromise = $q.defer();
