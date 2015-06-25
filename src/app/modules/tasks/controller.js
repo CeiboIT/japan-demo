@@ -51,6 +51,38 @@ console.log("tasks controller");
             });
     };
 
+    task.statusToDone = function(task) {
+        var cleanTask = {
+            'id' : task.$id,
+            'name' : task.name,
+            'status' : 'done'
+        };
+
+        task.updateTask = tasksService.updateTask(cleanTask)
+            .then (function() {
+                console.log("update ok");
+            }, function(error) {
+                task.error = error;
+                console.log("update no ok", task.error);
+            });
+    };
+
+    task.statusToPending = function(task) {
+        var cleanTask = {
+            'id' : task.$id,
+            'name' : task.name,
+            'status' : 'pending'
+        };
+
+        task.updateTask = tasksService.updateTask(cleanTask)
+            .then (function() {
+                console.log("update ok");
+            }, function(error) {
+                task.error = error;
+                console.log("update no ok", task.error);
+            });
+    };
+
 	function init() {
     	
 	};

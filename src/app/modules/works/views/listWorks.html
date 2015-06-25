@@ -29,7 +29,7 @@
 												<a href="#/work/update/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;update information</a>
 											</li>
 											<li>
-												<a ng-show="item.tasks.length" href="#/task/list/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;show works</a>
+												<a ng-show="item.tasks.length" href="#/task/list/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;show tasks ({{item.tasks.length}})</a>
 												<label ng-hide="item.tasks.length"><span class="icon icon-close"></span>&nbsp;no tasks yet</label>
 											</li>
 											<li>

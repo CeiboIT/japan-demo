@@ -10,6 +10,7 @@ var tasksService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var taskSchema = new Kutral.Schema({
       'title': {type: String, indexOn: true},
+      'status': {type: String},
       'members': [{type: 'ObjectId', ref:'users'}],
       'images': [{type: String}],
   });
@@ -38,6 +39,7 @@ var tasksService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   service.createTask = function(task) {
     var taskCreationPromise = $q.defer();
+    task.status = "pending";
     tasksDirectory.data = task;
     tasksDirectory.create(function(createdTask) {
       taskCreationPromise.resolve(createdTask);
