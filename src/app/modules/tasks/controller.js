@@ -28,8 +28,9 @@ console.log("tasks controller");
         task.createPromise = tasksService.createTask(task)
             .then(function(data) {
 				//console.log("task: ", data);
+                console.log(param1);
 				if (param1.tasks) {
-					param1.tasks.push(data.id);
+                    param1.tasks.push(data.id);
 				} else {
 					param1.tasks = [];
 					param1.tasks.push(data.id);
