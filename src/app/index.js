@@ -20,12 +20,10 @@ angular
 	'ceibo.ui.material.side-menu',
 	'landingModule',
 	'homeModule',
-	'citiesModule',
-	'regionsModule',
-	'tasksModule',
+	'companiesModule',
 	'worksModule',
+	'tasksModule',
 	'authModule',
-	'companiesModule'
   ])
 
   .constant('fireRef', 'https://japan-demo.firebaseio.com/')

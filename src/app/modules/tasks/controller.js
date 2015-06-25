@@ -1,83 +1,53 @@
 
 'use strict';
 
-var tasksCtrl = function() {
-	var tasks = this;
-
-	function init() {
-		console.log("tasks controller");
-	};
-
-	//INITIALIZING
-	init()
-};
-
-angular
-	.module('tasksModule')
-	.controller('tasksCtrl', tasksCtrl)
-
-
-
-
-'use strict';
-
-var worksCtrl = function(worksService, companiesService, param1, param2) {
-console.log("works controller");
-	var work = this;
+var tasksCtrl = function(tasksService, worksService, param1, param2) {
+console.log("tasks controller");
+	var task = this;
 
     if (param1 !== null) {
-        work.works = param1; // all work ids
+        task.tasks = param1; // all task ids
     }
 
     if (param2 !== null) {
-        work.allworks = param2; // all full works
+        task.alltasks = param2; // all full tasks
 
         // wire-style populate
-        work.workspop = [];
+        task.taskspop = [];
 
-        for (var id in work.works.works) { // para cada id
-            for (var fullwork in work.allworks) {
-                if (work.works.works[id] == work.allworks[fullwork].$id) {
-                    work.workspop.push(work.allworks[fullwork]);
+        for (var id in task.tasks.tasks) { // para cada id
+            for (var fulltask in task.alltasks) {
+                if (task.tasks.tasks[id] == task.alltasks[fulltask].$id) {
+                    task.taskspop.push(task.alltasks[fulltask]);
                 }
             }
         }
     }
 
-
-
-    work.options = {
-        types: '(cities)',
-        watchEnter: true,
-        //country: 'ar'
-    };
-
-    work.details;
-
-    work.createWork = function(work) {
-        work.createPromise = worksService.createWork(work)
+    task.createTask = function(task) {
+        task.createPromise = tasksService.createTask(task)
             .then(function(data) {
-				//console.log("work: ", data);
-				if (param1.works) {
-					param1.works.push(data.id);
+				//console.log("task: ", data);
+				if (param1.tasks) {
+					param1.tasks.push(data.id);
 				} else {
-					param1.works = [];
-					param1.works.push(data.id);
+					param1.tasks = [];
+					param1.tasks.push(data.id);
 				}
-				companiesService.updateCompany(param1);
+				worksService.updateWork(param1);
             }, function(error) {
-                work.error = error;
-                //console.log("error creating work", work.error);
+                task.error = error;
+                //console.log("error creating task", task.error);
             });
     };
 
-    work.updateWork = function(dataToUpdate) {
-        work.updateWork = worksService.updateWork(dataToUpdate)
+    task.updateTask = function(dataToUpdate) {
+        task.updateTask = tasksService.updateTask(dataToUpdate)
             .then (function() {
                 console.log("update ok");
             }, function(error) {
-                work.error = error;
-                console.log("update no ok", work.error);
+                task.error = error;
+                console.log("update no ok", task.error);
             });
     };
 
@@ -90,5 +60,5 @@ console.log("works controller");
 
 };
 
-angular.module('worksModule')
-  .controller('worksCtrl', worksCtrl);
+angular.module('tasksModule')
+  .controller('tasksCtrl', tasksCtrl);

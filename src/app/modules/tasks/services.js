@@ -2,67 +2,66 @@
 'use strict';
 
 
-var worksService = function(fireRef, Kutral, $q, $firebaseArray) {
+var tasksService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var service = this;
 
   var kutral  = new Kutral(fireRef);
 
-  var workSchema = new Kutral.Schema({
+  var taskSchema = new Kutral.Schema({
       'title': {type: String, indexOn: true},
-      'location': {type: String},
       'members': [{type: 'ObjectId', ref:'users'}],
-      'tasks': [{type: 'ObjectId', ref:'tasks'}],
+      'images': [{type: String}],
   });
 
-  var worksDirectory = kutral.model('works', workSchema);
+  var tasksDirectory = kutral.model('tasks', taskSchema);
 
-  service.showWorks = function(){
-    var worksPromise = $q.defer();
+  service.showTasks = function(){
+    var tasksPromise = $q.defer();
 
-    worksDirectory.find().$asArray(function(data) {
-      worksPromise.resolve(data);
+    tasksDirectory.find().$asArray(function(data) {
+      tasksPromise.resolve(data);
     });
 
-    return worksPromise.promise;
+    return tasksPromise.promise;
   }
 
-  service.getWorkById = function(id){
-    var getWorkByIdPromise = $q.defer();
+  service.getTaskById = function(id){
+    var getTaskByIdPromise = $q.defer();
  
-    worksDirectory.find({$id:id}, function(data) {
-      getWorkByIdPromise.resolve(data);
+    tasksDirectory.find({$id:id}, function(data) {
+      getTaskByIdPromise.resolve(data);
     });
  
-    return getWorkByIdPromise.promise;
+    return getTaskByIdPromise.promise;
   }
 
-  service.createWork = function(work) {
-    var workCreationPromise = $q.defer();
-    worksDirectory.data = work;
-    worksDirectory.create(function(createdWork) {
-      workCreationPromise.resolve(createdWork);
+  service.createTask = function(task) {
+    var taskCreationPromise = $q.defer();
+    tasksDirectory.data = task;
+    tasksDirectory.create(function(createdTask) {
+      taskCreationPromise.resolve(createdTask);
     });
 
-    return workCreationPromise.promise;
+    return taskCreationPromise.promise;
   };
 
-  service.updateWork = function(dataToUpdate) {
+  service.updateTask = function(dataToUpdate) {
     var updateArticlePromise = $q.defer();
-    worksDirectory.data = dataToUpdate;
+    tasksDirectory.data = dataToUpdate;
 
-    worksDirectory.update(function(success) {
-      updateArticlePromise.resolve(worksDirectory.data);
+    tasksDirectory.update(function(success) {
+      updateArticlePromise.resolve(tasksDirectory.data);
     });
 
     return updateArticlePromise.promise;
 
   };
 
-  service.checkWorkTitleAvailability = function(name) {
+  service.checkTaskTitleAvailability = function(name) {
       var titleAvailabilityPromise = $q.defer();
-      worksDirectory.find({"name" : name}, function(workData) {
-        titleAvailabilityPromise.resolve(!workData)
+      tasksDirectory.find({"name" : name}, function(taskData) {
+        titleAvailabilityPromise.resolve(!taskData)
       });
 
       return titleAvailabilityPromise.promise;
@@ -72,5 +71,5 @@ var worksService = function(fireRef, Kutral, $q, $firebaseArray) {
 };
 
 
-angular.module('worksModule')
-  .service('worksService', worksService)
+angular.module('tasksModule')
+  .service('tasksService', tasksService)
