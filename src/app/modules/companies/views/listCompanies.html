@@ -5,35 +5,45 @@
 	</div>
 </div>
 
-<div class="content-inner">
+
+<div class="content-inner avoid-fout">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-8 col-lg-push-2 col-sm-10 col-sm-push-1">
+
+			<div class="cards-container">
 				<div class="card-wrap">
-					<div class="card">
-						<div class="card-main">
-							<div class="card-header">
-								<div class="card-inner">
-									<h1 class="card-heading">Information</h1>
+					<div class="row">
+						<p class="error-loading" ng-hide="list.companies.length">
+							There are none companies yet! Please reload the page later
+						</p>
+						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in list.companies">
+							<div class="card">
+								<div class="card-main">
+									<div class="card-img">
+										<img alt="alt text" src="assets/images/company.jpg">
+										<p class="card-img-heading">{{item.name}} <br> <span class="card-subtitle">{{item.owner}}</span></p>
+									</div>
+									<div class="card-options">
+										<ul>
+											<li>
+												<a href="#/company/update/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;update information</a>
+											</li>
+											<li>
+												<a ng-show="item.works.length" href="#/work/list/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;show works</a>
+												<label ng-hide="item.works.length"><span class="icon icon-close"></span>&nbsp;no works yet</label>
+											</li>
+											<li>
+												<a href="#/work/register/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;add works</a>
+											</li>
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div class="card-inner">
-
-							<p ng-hide="list.companies.length">
-								There are none companies yet! Please reload the page later
-							</p>
-							<p ng-repeat="item in list.companies">
-								<b>{{item.name}}</b> - {{item.owner}} <br>
-								<a href="#/company/update/{{item.$id}}"> update information</a> | 
-								<a href="#/work/list/{{item.$id}}"> show works</a> | 
-								<a href="#/work/register/{{item.$id}}"> add work</a>
-							</p>
-
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>

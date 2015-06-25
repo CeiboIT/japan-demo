@@ -40,6 +40,50 @@ nav {
   height: 400px;
 }
 
+.error-loading {
+  margin: 20px;
+}
+
+.cards-container {
+  max-width: 950px;
+  margin: 24px;
+  padding: 0px 10px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+  -webkit-transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-subtitle {
+  font-size: 12px;
+}
+
+.card-options {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  padding: 0px;
+}
+
+.card-options ul {
+  margin: 0px;
+  padding: 10px;
+}
+
+.card-options a {
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+.card-tile {
+  clear: both !important;
+}
+
 /* ======= personalized styles ======= /*/
 
 
@@ -8485,7 +8529,7 @@ a.fbtn:focus, a.fbtn:hover {
 .card-img-heading {
   background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
   color: #ffffff;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 28px;
   margin: 0;
   padding: 12px 16px;
