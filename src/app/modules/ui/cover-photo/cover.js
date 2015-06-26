@@ -1,6 +1,6 @@
 'use strict';
 
-var coverPhotoCtrl= function(uploadSettings, $upload, $timeout, gettext) {
+var coverPhotoCtrl= function(uploadSettings, $upload, $timeout) {
 
     var coverCtrl = this;
     var _uploadSettings = uploadSettings.getSettings('upload');
@@ -11,10 +11,10 @@ var coverPhotoCtrl= function(uploadSettings, $upload, $timeout, gettext) {
         if ($file) {
             try {
                 if (_uploadSettings.allowedType.indexOf($file.type) === -1) {
-                    throw new Error(gettext('Only JPG, PNG, GIF Files are allowed'));
+                    throw new Error('Only JPG, PNG, GIF Files are allowed');
                 }
                 if ($file.size > _uploadSettings.maxSize) {
-                    throw new Error(gettext('File must not exceed 2Mb'));
+                    throw new Error('File must not exceed 2Mb');
                 }
                 return $file;
             } catch (error) {
@@ -73,13 +73,6 @@ var coverPhotoCtrl= function(uploadSettings, $upload, $timeout, gettext) {
 };
 
 angular.module('lixil.ui.cover-photo', [])
-    .run(function(formlyConfig) {
-      formlyConfig.setType({
-        ////In order to be able to use this directive with angular-formly
-        name: "coverPhoto",
-        template: '<cover-photo model="model[options.key]" cover-formly="{{ true }}" show-panel="true"></cover-photo>'
-      })
-    })
 
     .controller('coverPhotoCtrl', coverPhotoCtrl)
     .directive('coverPhoto', function() {
@@ -96,7 +89,7 @@ angular.module('lixil.ui.cover-photo', [])
             controller: 'coverPhotoCtrl as cover',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             restrict: 'E', // E = Element, A = Attribute, C = Class, M = Comment
-            templateUrl: '../modules/lixil-ui-components/cover-photo/cover.html',
+            templateUrl: 'app/modules/ui/cover-photo/cover.html',
             bindToController: true
         };
     });

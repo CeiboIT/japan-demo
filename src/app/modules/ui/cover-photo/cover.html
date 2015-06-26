@@ -3,7 +3,7 @@
 		<div class="upload-area" ng-show="!cover.showInPanel">
       <img ng-src="{{cover.coverUrl || cover.model.coverUrl ||  '/images/cover.jpg'}}">
       <div class="instructions">
-        <button type="button" ng-file-select ng-accept="cover.validate($file)" ng-model="cover.file" ng-file-change="cover.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload Cover' | translate}}</button>
+        <button type="button" ng-file-select ng-accept="cover.validate($file)" ng-model="cover.file" ng-file-change="cover.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload Cover'}}</button>
       </div>
       <div ng-show="cover.progress > 0">
       <progressbar class="progress-striped active" value="cover.progress" type="primary">{{cover.progress}}%</progressbar>z
@@ -16,7 +16,7 @@
         <div class="panel-body">
           <img ng-src="{{cover.coverUrl || cover.model.coverUrl || '/images/cover.jpg'}}">
           <div class="instructions">
-            <button type="button" ng-file-select ng-accept="cover.validate($file)" ng-model="cover.file" ng-file-change="cover.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload Cover' | translate}}</button>
+            <button type="button" ng-file-select ng-accept="cover.validate($file)" ng-model="cover.file" ng-file-change="cover.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload Cover'}}</button>
           </div>
           <div ng-show="cover.progress > 0">
             <progressbar class="progress-striped active" value="cover.progress" type="primary">{{cover.progress}}%</progressbar>z
