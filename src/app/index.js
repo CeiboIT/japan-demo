@@ -18,6 +18,7 @@ angular
 	// our modules
 	'config',
 	'ceibo.ui.material.side-menu',
+	'lixil.ui.cover-photo',
 	'landingModule',
 	'homeModule',
 	'companiesModule',
