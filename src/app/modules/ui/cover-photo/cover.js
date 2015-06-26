@@ -1,6 +1,6 @@
 'use strict';
 
-var coverPhotoCtrl= function(uploadSettings, Upload, $timeout) {
+var coverPhotoCtrl= function(uploadSettings, $upload, $timeout) {
 
     var coverCtrl = this;
     var _uploadSettings = uploadSettings.getSettings('upload');
@@ -20,7 +20,6 @@ var coverPhotoCtrl= function(uploadSettings, Upload, $timeout) {
             } catch (error) {
                 coverCtrl.error = error.message;
             }
-
         }
     };
 
@@ -37,16 +36,8 @@ var coverPhotoCtrl= function(uploadSettings, Upload, $timeout) {
                 fields: uploadParams,
                 file: coverCtrl.file[0]
             }).success(function(data) {
-                if(coverCtrl.coverFormly) {
-                  coverCtrl.model = {
-                    coverUrl :data.secure_url,
-                    coverId : data.public_id
-                  }
-                } else {
-                  coverCtrl.coverUrl = data.secure_url;
-                  coverCtrl.coverId = data.public_id;
-                }
-
+                coverCtrl.coverUrl = data.secure_url;
+                coverCtrl.coverId = data.public_id;
                 coverCtrl.preview = coverCtrl.coverUrl;
                 if (oldCoverId) {
                     uploadSettings.deleteFile(oldCoverId);
@@ -63,17 +54,13 @@ var coverPhotoCtrl= function(uploadSettings, Upload, $timeout) {
             }).error(function(err) {
                 coverCtrl.error = err.error.message;
             }).progress(function(evt) {
-                // Math.min is to fix IE which reports 200% sometimes
                 coverCtrl.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
             });
         }
     };
-
-
 };
 
 angular.module('lixil.ui.cover-photo', [])
-
     .controller('coverPhotoCtrl', coverPhotoCtrl)
     .directive('coverPhoto', function() {
         // Runs during compile
