@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('lixilApp')
+angular.module('jpndemo')
 
 .service('uploadSettings', function($http, fireService, AuthTokenService) {
     var service = this;

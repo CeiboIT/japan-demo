@@ -15,6 +15,8 @@ angular
 	'firebase',
 	'fireQuery',
 	'ngAutocomplete',
+	'angularFileUpload',
+	'ngFileUpload',
 	// our modules
 	'config',
 	'ceibo.ui.material.side-menu',
