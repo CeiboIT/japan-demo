@@ -26,7 +26,7 @@ var coverPhotoCtrl= function(uploadSettings, $upload, $timeout) {
     coverCtrl.upload = function() {
         if (coverCtrl.file[0]) {
             var uploadParams = {
-                upload_preset: _uploadSettings.presets.articleCover
+                upload_preset: _uploadSettings.presets.upload
             };
             var oldCoverId = coverCtrl.coverId;
             coverCtrl.progress = 0;
