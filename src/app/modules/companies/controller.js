@@ -1,7 +1,7 @@
 
 'use strict';
 
-var companiesCtrl = function(companiesService, param1) {
+var companiesCtrl = function(companiesService, param1, $modal) {
 
 	var company = this;
 
@@ -27,6 +27,21 @@ var companiesCtrl = function(companiesService, param1) {
                 company.error = error;
                 console.log("update no ok", company.error);
             });
+    };
+
+    company.modalRegisterWork = function (company) {
+        var modalInstance = $modal.open({
+            templateUrl: 'app/modules/companies/views/modalRegisterWork.html',
+            controller: 'modalRegisterWorkCtrl as modal',
+            backdrop: 'static',
+            size: 'sm',
+            resolve: {
+                'company':
+                   function () {
+                        return company;
+                    }
+            }
+        });
     };
 
 
