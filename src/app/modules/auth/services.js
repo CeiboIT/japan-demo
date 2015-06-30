@@ -2,7 +2,7 @@
  * Created by emiliano on 04/02/15.
  */
 angular.module('authModule')
-    .service('AuthTokenService', function AuthTokenService($localStorage, $window, $firebaseAuth, $q, fireRef, fireService) {
+    .service('AuthTokenService', function AuthTokenService($localStorage, $window, $firebaseAuth, $q, fireRef, fireService, Kutral) {
 
             var service = this;
             var key = 'uid';
@@ -13,6 +13,17 @@ angular.module('authModule')
             var userKey = 'uid';
 
             service.auth = auth;
+
+            var kutral = new Kutral(fireRef);
+            var userSchema;
+
+            var userModel;
+
+            userSchema = new Kutral.Schema({
+                'email': {type: String, indexOn: true}
+            });
+
+            userModel = kutral.model('users', userSchema);
 
             service.setToken = function(token) {
                 $localStorage[authKey] = token;
@@ -25,6 +36,15 @@ angular.module('authModule')
             service.setId= function(uid) {
               $localStorage[userKey] = uid;
             };
+
+            service.getId= function() {
+              return $localStorage[userKey];
+            };
+
+            service.setUserDataInMemory = function(userData) {
+                service.userData = userData;
+            };
+
             service.isAuthorized = function() {
                 return !!auth.$getAuth();
             };
@@ -49,7 +69,9 @@ angular.module('authModule')
             service.login = function(userCredentials) {
                 var authPromise = $q.defer();
                 auth.$authWithPassword(userCredentials) //{remember: 'sessionOnly'}
-                    .then(function() {
+                    .then(function(userData) {
+                        service.setId(userData.uid)
+                        service.setToken(userData.token)
                         authPromise.resolve('success');
                     })
                     .catch(function(error) {
@@ -62,47 +84,46 @@ angular.module('authModule')
             service.getUserData = function(userId) {
 
                 var userDataPromise = $q.defer();
-                console.log($localStorage)
                 //don't ask to the server if we don't need it
                 if(!$localStorage[key]){
                     userDataPromise.reject();
                 }
                 else{
 
-                //if we're asking for ourselves
-                if (!userId) {
-                    //try to get it from memory
-                    var user = service.userData;
-                    var userId = service.getId();
+                    //if we're asking for ourselves
+                    if (!userId) {
+                        //try to get it from memory
+                        var user = service.userData;
+                        var userId = service.getId();
 
-                    //by convention, let's call the service.getUserData without params for search for ourselves
-                    //if the data were not in memory, let's ask to the server
-                    //also if we had a different data in memory instead of the one that we were looking
+                        //by convention, let's call the service.getUserData without params for search for ourselves
+                        //if the data were not in memory, let's ask to the server
+                        //also if we had a different data in memory instead of the one that we were looking
 
-                    if (!user) {
-                        userModel.find({
-                            "$id": service.getId()
-                        }, function(data) {
-                            service.setUserDataInMemory(data);
-                            userDataPromise.resolve(data);
-                        })
+                        if (!user) {
+                            userModel.find({
+                                "$id": service.getId()
+                            }, function(data) {
+                                service.setUserDataInMemory(data);
+                                userDataPromise.resolve(data);
+                            })
+                        } else {
+                            //sends the user that we had in memory
+                            userDataPromise.resolve(user)
+                        }
                     } else {
-                        //sends the user that we had in memory
-                        userDataPromise.resolve(user)
-                    }
-                } else {
-                    //if we're asking for a other user, always we will have to go to the server
-                    userModel.find({
-                        "email": userId
-                    }, function(data) {
-                        var dataKey = Object.keys(data)[0];
-                        userDataPromise.resolve(data[dataKey]);
-                    })
+                        //if we're asking for a other user, always we will have to go to the server
+                        userModel.find({
+                            "email": userId
+                        }, function(data) {
+                            var dataKey = Object.keys(data)[0];
+                            userDataPromise.resolve(data[dataKey]);
+                        })
 
+                    }
                 }
-            }
                 return userDataPromise.promise;
-        }
+            }
 
             service.changePassword = function(userCredentials){
                 var passwordPromise = $q.defer();

@@ -19,13 +19,13 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
     }
 
     authCtrl.sendCredentials = function(userCredentials) {
+        authCtrl.loading = true;
         authCtrl.loginPromise = AuthTokenService.login(userCredentials)
             .then(function() {
-
                 AuthTokenService.getUserData()
-        .then(function(userData) {
-            
-        });
+                    .then(function(userData) {
+                });
+                authCtrl.loading = false;
             }, function(error) {
                 if(error.code.indexOf('INVALID_') !== -1){
                     authCtrl.error = 'Email o Password incorrectos';
@@ -34,6 +34,7 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
                     $raven.captureException(error);
                     authCtrl.error = 'Retry later';
                 }
+                authCtrl.loading = false;
             });
     };
 

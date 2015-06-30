@@ -29,8 +29,12 @@ angular
 	'authModule',
   ])
 
-  .constant('fireRef', 'https://japan-demo.firebaseio.com/')
+	.constant('fireRef', 'https://japan-demo.firebaseio.com/')
 
-  .run(function ($state, $rootScope) {
-    $rootScope.$state = $state;
-  })
+	.run(function ($state, $rootScope) {
+		$rootScope.$state = $state;
+	})
+
+	.config(function ($httpProvider) {
+		$httpProvider.interceptors.push('AuthInterceptor');
+	})
