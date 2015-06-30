@@ -8,10 +8,6 @@ console.log("modal register work controller");
 
 	modal.company = param1;
 
-    modal.cancelar = function () {
-        $modalInstance.dismiss();
-    };
-
     modal.createWork = function(work) {
         work.createPromise = worksService.createWork(work)
             .then(function(data) {
@@ -28,6 +24,10 @@ console.log("modal register work controller");
                 work.error = error;
                 //console.log("error creating work", work.error);
             });
+    };
+
+    modal.cancelar = function () {
+        $modalInstance.dismiss();
     };
 
 	function init() {

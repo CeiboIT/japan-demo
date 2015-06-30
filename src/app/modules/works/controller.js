@@ -24,8 +24,6 @@ console.log("works controller");
         }
     }
 
-
-
     work.options = {
         types: '(cities)',
         watchEnter: true,
@@ -33,23 +31,6 @@ console.log("works controller");
     };
 
     work.details;
-
-    work.createWork = function(work) {
-        work.createPromise = worksService.createWork(work)
-            .then(function(data) {
-				//console.log("work: ", data);
-				if (param1.works) {
-					param1.works.push(data.id);
-				} else {
-					param1.works = [];
-					param1.works.push(data.id);
-				}
-				companiesService.updateCompany(param1);
-            }, function(error) {
-                work.error = error;
-                //console.log("error creating work", work.error);
-            });
-    };
 
     work.updateWork = function(dataToUpdate) {
         work.updateWork = worksService.updateWork(dataToUpdate)

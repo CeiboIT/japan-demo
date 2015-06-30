@@ -5,20 +5,6 @@ angular.module('worksModule', [])
 
 	.config(function($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('app.registerWork', {
-				url: '/work/register/:companyId',
-				controller : 'worksCtrl as register',
-				templateUrl: 'app/modules/works/views/registerWork.html',
-				resolve: {
-					param1 : function(companiesService, $stateParams) {
-						var companyId = $stateParams.companyId;
-						return companiesService.getCompanyById(companyId)
-					},
-					param2 : function(){
-						return null
-					}
-				}
-			})
 			.state('app.listWorks', {
 				url: '/work/list/:companyId',
 				controller : 'worksCtrl as list',
