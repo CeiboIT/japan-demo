@@ -1,15 +1,33 @@
 
 'use strict';
 
-var modalRegisterWorkCtrl = function(worksService, companiesService, $modalInstance, company) {
+var modalRegisterWorkCtrl = function(worksService, companiesService, $modalInstance, param1) {
 console.log("modal register work controller");
 
 	var modal = this;
 
-	modal.company = company;
+	modal.company = param1;
 
     modal.cancelar = function () {
         $modalInstance.dismiss();
+    };
+
+    modal.createWork = function(work) {
+        work.createPromise = worksService.createWork(work)
+            .then(function(data) {
+				//console.log("work: ", data);
+				if (param1.works) {
+					param1.works.push(data.id);
+				} else {
+					param1.works = [];
+					param1.works.push(data.id);
+				}
+				companiesService.updateCompany(param1);
+				$modalInstance.dismiss();
+            }, function(error) {
+                work.error = error;
+                //console.log("error creating work", work.error);
+            });
     };
 
 	function init() {

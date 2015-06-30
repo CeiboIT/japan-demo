@@ -121,6 +121,10 @@ nav {
   width: 100px;
 }
 
+.pac-container {
+  z-index: 2000;
+}
+
 /* ======= personalized styles ======= /*/
 
 
@@ -8969,8 +8973,8 @@ legend[class*="col-xx-"] {
 }
 
 .form {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .form-control, .picker__select--month,
@@ -9188,8 +9192,7 @@ textarea.picker__select--year {
 }
 
 .form-group {
-  margin-top: 24px;
-  margin-bottom: 24px;
+    margin-top: 15px;
 }
 legend + .form-group {
   margin-top: 0;
@@ -9748,8 +9751,7 @@ legend + .form-group {
 }
 
 .form-group-label {
-  margin-top: 36px;
-  margin-bottom: 36px;
+  margin-top: 15px;
   position: relative;
 }
 .form-group-label .form-control, .form-group-label .picker__select--month,
@@ -10127,6 +10129,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   -webkit-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
+  margin: 0px;
 }
 @media only screen and (min-width: 480px) {
   .modal-dialog.modal-xs {

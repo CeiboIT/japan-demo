@@ -19,12 +19,6 @@
 							There are none companies yet! Please reload the page later
 						</p>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in list.companies">
-
-
-<button class="btn-large waves-effect waves-light teal lighten-1" ng-click="list.modalRegisterWork(item)">TEST MODAL</button>
-
-
-
 							<div class="card">
 								<div class="card-main">
 									<div class="card-img">
@@ -41,7 +35,7 @@
 												<label ng-hide="item.works.length"><span class="icon icon-close"></span>&nbsp;no works yet</label>
 											</li>
 											<li>
-												<a href="#/work/register/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;add work</a>
+												<a ng-click="list.modalRegisterWork(item.$id)" href=""><span class="icon icon-check"></span>&nbsp;add work</a>
 											</li>
 										</ul>
 									</div>

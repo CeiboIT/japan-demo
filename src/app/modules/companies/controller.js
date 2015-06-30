@@ -29,17 +29,16 @@ var companiesCtrl = function(companiesService, param1, $modal) {
             });
     };
 
-    company.modalRegisterWork = function (company) {
+    company.modalRegisterWork = function (companyId) {
         var modalInstance = $modal.open({
-            templateUrl: 'app/modules/companies/views/modalRegisterWork.html',
+            templateUrl: 'app/modules/works/views/modalRegisterWork.html',
             controller: 'modalRegisterWorkCtrl',
             controllerAs: 'modal',
             backdrop: 'static',
             resolve: {
-                'company':
-                   function () {
-                        return company;
-                    }
+                param1 : function(companiesService) {
+                    return companiesService.getCompanyById(companyId)
+                },
             }
         });
     };
