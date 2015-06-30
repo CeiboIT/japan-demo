@@ -26,7 +26,7 @@
 										</span>
 									</p>
 
-									<form class="form" name="form" action="" novalidate>
+									<form class="form" name="form" ng-submit="login.sendCredentials(login.optin)" novalidate>
 										<div class="form-group form-group-label">
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
@@ -46,7 +46,7 @@
 										<div class="form-group">
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
-													<button class="btn btn-block btn-blue waves-button waves-effect waves-light" type="submit" ng-click="login.sendCredentials(login.optin)" ng-disabled="form.$invalid">Sign In</button>
+													<button class="btn btn-block btn-blue waves-button waves-effect waves-light" type="submit" ng-disabled="form.$invalid || login.loading">Sign In</button>
 													                  <a ng-click="login.toggleFotgonPass();">¿Olvidó su contraseña?</a>
 
 												</div>
