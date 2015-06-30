@@ -32,9 +32,9 @@ var companiesCtrl = function(companiesService, param1, $modal) {
     company.modalRegisterWork = function (company) {
         var modalInstance = $modal.open({
             templateUrl: 'app/modules/companies/views/modalRegisterWork.html',
-            controller: 'modalRegisterWorkCtrl as modal',
+            controller: 'modalRegisterWorkCtrl',
+            controllerAs: 'modal',
             backdrop: 'static',
-            size: 'sm',
             resolve: {
                 'company':
                    function () {
