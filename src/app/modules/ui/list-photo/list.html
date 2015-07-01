@@ -1,0 +1,18 @@
+<div class="row">
+	<div class="col-xs-12">
+		<div class="upload-area">
+      <span ng-show="list.listUrl || list.listUrl == undefined" ng-repeat="photo in list.listUrl">
+        <img class="task-image" ng-src="{{photo}}">
+      </span>
+      <span ng-hide="list.listUrl">
+        <img class="task-image" ng-src="{{'/assets/images/default.png'}}">
+      </span>
+      <div class="instructions">
+        <button type="button" ng-file-select ng-accept="list.validate($file)" ng-model="list.file" ng-file-change="list.upload()" class="btn btn-sm btn-primary btn-rounded">{{'Upload new photo'}}</button>
+      </div>
+      <div ng-show="list.progress > 0">
+      <progressbar class="progress-striped active" value="list.progress" type="primary">{{list.progress}}%</progressbar>
+      </div>
+		</div>
+  </div>
+</div>

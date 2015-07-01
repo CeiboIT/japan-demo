@@ -117,8 +117,11 @@ nav {
 }
 
 .task-image {
-  padding: 10px;
-  width: 100px;
+  border: 0;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 15px;
+  vertical-align: middle;
 }
 
 .pac-container {
@@ -10215,6 +10218,8 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 .nav li {
   display: block;
   position: relative;
+  clear: both;
+  width: 70%;
 }
 .nav ul {
   margin: 0;
@@ -11838,10 +11843,11 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 
 .menu-collapse-toggle {
   background-color: transparent !important;
+  color: rgb(5, 142, 129);
   cursor: pointer;
   display: block;
   float: right;
-  padding: 12px 16px;
+  padding: 12px 10px;
   position: absolute;
   top: 0;
   right: 0;
@@ -11914,6 +11920,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  /* display: block; */
 }
 .menu-content .nav a:focus, .menu-content .nav a:hover,
 .menu-content .nav .a:focus,

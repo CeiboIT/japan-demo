@@ -1,6 +1,7 @@
 'use strict';
 
 var coverPhotoCtrl= function(uploadSettings, $upload, $timeout) {
+console.log("cover-photo controller");
 
     var coverCtrl = this;
     var _uploadSettings = uploadSettings.getSettings('upload');
