@@ -1,6 +1,6 @@
 'use strict';
 
-var listPhotoCtrl= function(uploadSettings, $upload, $timeout) {
+var listPhotoCtrl= function(tasksService, uploadSettings, $upload, $timeout) {
 console.log("list-photo controller");
     var listCtrl = this;
     var _uploadSettings = uploadSettings.getSettings('upload');
@@ -57,8 +57,21 @@ console.log("list-photo controller");
                 //    uploadSettings.deleteFile(oldListId);
                 //}
 
-                if(listCtrl.onUploadedPromise) {
-                  listCtrl.onUploadedPromise({ listUrl: listCtrl.listUrl, listId: listCtrl.listId })
+                //if(listCtrl.onUploadedPromise) {
+                //  listCtrl.onUploadedPromise({ listUrl: listCtrl.listUrl, listId: listCtrl.listId })
+                //}
+
+                if (listCtrl.model) {
+                    listCtrl.model.imagesUrl = listCtrl.listUrl;
+                    listCtrl.model.imagesId = listCtrl.listUrl;
+
+                    listCtrl.updateTask = tasksService.updateTask(listCtrl.model)
+                        .then (function() {
+                            console.log("update ok");
+                        }, function(error) {
+                            listCtrl.error = error;
+                            console.log("update no ok", listCtrl.error);
+                        });
                 }
 
                 $timeout(function(){
