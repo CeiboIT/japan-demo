@@ -3,9 +3,25 @@
 	<div class="container">
 		<p class="home-title">Welcome to <b>RAPIDO</b></p>
 		<p class="home-subtitle">A management system for your company</p>
-		<button class="btn-large waves-effect waves-light teal lighten-1">GET STARTED</button>
+		<!--<button class="btn-large waves-effect waves-light teal lighten-1">GET STARTED</button>-->
+		<div class="dropdown-wrap">
+			<div class="dropdown dropdown-inline">
+				<a class="btn dropdown-toggle-btn" data-toggle="dropdown">GET STARTED<span class="icon icon-keyboard-arrow-down margin-left-half"></span></a>
+				<ul class="dropdown-menu">
+					<li>
+						<a ui-sref="app.registerCompany">Register a new company</a>
+					</li>
+					<li>
+						<a ui-sref="app.listCompanies">Show registered companies</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
+	<br><br><br><br><br><br><br>
 </div>
+
+<!-- TABS 
 <div class="content-inner">
 	<div class="container">
 		<div class="row">
@@ -29,39 +45,12 @@
 				</nav>
 				<div class="tab-content">
 					<div class="tab-pane fade active in first-tab">
-		
-						<div class="dropdown-wrap">
-							<div class="dropdown dropdown-inline">
-								<a class="btn dropdown-toggle-btn" data-toggle="dropdown">Companies<span class="icon icon-keyboard-arrow-down margin-left-half"></span></a>
-								<ul class="dropdown-menu">
-									<li>
-										<a ui-sref="app.registerCompany">Register a new company</a>
-									</li>
-									<li>
-										<a ui-sref="app.listCompanies">Show registered companies</a>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<!--
-						<p>Go to Cities <a ui-sref="app.cities">here</a>!</p>
-						-->
 					</div>
 					<div class="tab-pane fade second-tab">
-						<!--
-						<p>Go to Regions <a ui-sref="app.regions">here</a>!</p>
-						-->
 					</div>
 					<div class="tab-pane fade third-tab">
-						<!--
-						<p>Go to Works <a ui-sref="app.works">here</a>!</p>
-						-->
 					</div>
 					<div class="tab-pane fade fourth-tab">
-						<!--
-						<p>Go to Tasks <a ui-sref="app.tasks">here</a>!</p>
-						-->
 					</div>
 				</div>
 			</div>
