@@ -1,7 +1,7 @@
 
 'use strict';
 
-var worksCtrl = function(worksService, companiesService, param1, param2) {
+var worksCtrl = function(worksService, companiesService, param1, param2, $modal) {
 console.log("works controller");
 	var work = this;
 
@@ -40,6 +40,20 @@ console.log("works controller");
                 work.error = error;
                 console.log("update no ok", work.error);
             });
+    };
+
+    work.modalRegisterTask = function (workId) {
+        var modalInstance = $modal.open({
+            templateUrl: 'app/modules/tasks/views/modalRegisterTask.html',
+            controller: 'modalRegisterTaskCtrl',
+            controllerAs: 'modal',
+            backdrop: 'static',
+            resolve: {
+                param1 : function(worksService) {
+                    return worksService.getWorkById(workId)
+                },
+            }
+        });
     };
 
 	function init() {

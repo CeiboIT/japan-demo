@@ -5,20 +5,6 @@ angular.module('tasksModule', [])
 
 	.config(function($stateProvider, $urlRouterProvider) {
 		$stateProvider
-			.state('app.registerTask', {
-				url: '/task/register/:workId',
-				controller : 'tasksCtrl as register',
-				templateUrl: 'app/modules/tasks/views/registerTask.html',
-				resolve: {
-					param1 : function(worksService, $stateParams) {
-						var workId = $stateParams.workId;
-						return worksService.getWorkById(workId)
-					},
-					param2 : function(){
-						return null
-					}
-				}
-			})
 			.state('app.listTasks', {
 				url: '/task/list/:workId',
 				controller : 'tasksCtrl as list',

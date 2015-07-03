@@ -5,16 +5,6 @@ angular.module('companiesModule', [])
 
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-            .state('app.registerCompany', {
-                url: '/company/register',
-                controller : 'companiesCtrl as register',
-                templateUrl: 'app/modules/companies/views/registerCompany.html',
-                resolve: {
-                    param1: function() {
-                        return null
-                    }
-                }
-            })
             .state('app.listCompanies', {
                 url: '/company/list',
                 controller : 'companiesCtrl as list',
