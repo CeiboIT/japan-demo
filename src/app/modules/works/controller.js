@@ -42,6 +42,20 @@ console.log("works controller");
             });
     };
 
+    work.modalRegisterWork = function (companyId) {
+        var modalInstance = $modal.open({
+            templateUrl: 'app/modules/works/views/modalRegisterWork.html',
+            controller: 'modalRegisterWorkCtrl',
+            controllerAs: 'modal',
+            backdrop: 'static',
+            resolve: {
+                param1 : function(companiesService) {
+                    return companiesService.getCompanyById(companyId)
+                },
+            }
+        });
+    };
+
     work.modalRegisterTask = function (workId) {
         var modalInstance = $modal.open({
             templateUrl: 'app/modules/tasks/views/modalRegisterTask.html',

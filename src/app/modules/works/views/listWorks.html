@@ -1,14 +1,17 @@
 
 <div class="content-heading">
 	<div class="container">
-		<h1 class="heading">Works</h1>
+		<h1 class="heading">{{list.works.name}} works</h1>
 	</div>
 </div>
-
 
 <div class="content-inner">
 	<div class="container">
 		<div class="row">
+						
+			<div class="item-options">
+				<label class="btn btn-blue waves-button waves-effect waves-light" ng-click="list.modalRegisterWork(list.works.id)">Add work</label>
+			</div>
 
 			<div class="cards-container">
 				<div class="card-wrap">

@@ -9,16 +9,6 @@ var companiesCtrl = function(companiesService, param1, $modal) {
         company.companies = param1;
     }
 
-    company.createCompany = function(company) {
-        company.createPromise = companiesService.createCompany(company)
-            .then(function() {
-				//console.log("company created");
-            }, function(error) {
-                company.error = error;
-                //console.log("error creating company", company.error);
-            });
-    };
-
     company.updateCompany = function(dataToUpdate) {
         company.updateCompany = companiesService.updateCompany(dataToUpdate)
             .then (function() {

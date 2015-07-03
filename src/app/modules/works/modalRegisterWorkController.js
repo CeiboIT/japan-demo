@@ -20,6 +20,7 @@ console.log("modal register work controller");
 				}
 				companiesService.updateCompany(param1);
 				$modalInstance.dismiss();
+				window.location.reload();
             }, function(error) {
                 work.error = error;
                 //console.log("error creating work", work.error);

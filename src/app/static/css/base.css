@@ -64,8 +64,8 @@ nav {
 
 .cards-container {
   max-width: 950px;
-  margin: 24px;
-  padding: 0px 10px;
+  margin: 0 auto;
+  padding: 10px;
   background-color: #ffffff;
   border-radius: 2px;
   display: -webkit-box;
@@ -144,6 +144,11 @@ nav {
 
 .pac-container {
   z-index: 2000;
+}
+
+.item-options {
+  text-align: center;
+  margin: 10px;
 }
 
 /* ======= personalized styles ======= /*/
@@ -10057,22 +10062,25 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 
 .modal {
-  display: none;
-  overflow: hidden;
-  outline: 0;
-  position: fixed;
+  /* display: none; */
+  /* overflow: hidden; */
+  /* outline: 0; */
+  /* position: fixed; */
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  z-index: 40;
+  /* left: 0; */
+  /* z-index: 40; */
 
 }
 .modal-open .modal {
   overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow: auto; */
+  position: fixed;
+  overflow-y: scroll;
   background-color: transparent;
   box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0);
+  display: inline-table !important;
 }
 
 .modal-backdrop {

@@ -11,6 +11,7 @@ console.log("modal register company controller");
             .then(function(data) {
 				//console.log("company: ", data);
 				$modalInstance.dismiss();
+                window.location.href = '#/work/list/' + data.id;
             }, function(error) {
                 company.error = error;
                 //console.log("error creating company", company.error);

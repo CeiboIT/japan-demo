@@ -24,24 +24,6 @@ console.log("tasks controller");
         }
     }
 
-    task.createTask = function(task) {
-        task.createPromise = tasksService.createTask(task)
-            .then(function(data) {
-				//console.log("task: ", data);
-                console.log(param1);
-				if (param1.tasks) {
-                    param1.tasks.push(data.id);
-				} else {
-					param1.tasks = [];
-					param1.tasks.push(data.id);
-				}
-				worksService.updateWork(param1);
-            }, function(error) {
-                task.error = error;
-                //console.log("error creating task", task.error);
-            });
-    };
-
     task.updateTask = function(dataToUpdate) {
         task.updateTask = tasksService.updateTask(dataToUpdate)
             .then (function() {
