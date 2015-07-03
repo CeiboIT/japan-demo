@@ -10,6 +10,7 @@ var tasksService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   var taskSchema = new Kutral.Schema({
       'title': {type: String, indexOn: true},
+      'description': {type: String},
       'status': {type: String},
       'members': [{type: 'ObjectId', ref:'users'}],
       'images': [{type: String}],

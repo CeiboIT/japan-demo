@@ -20,6 +20,7 @@ console.log("modal register task controller");
 				}
 				worksService.updateWork(param1);
 				$modalInstance.dismiss();
+				window.location.reload();
             }, function(error) {
                 task.error = error;
                 //console.log("error creating task", task.error);
