@@ -12,6 +12,10 @@ console.log("works controller");
     if (param2 !== null) {
         work.allworks = param2; // all full works
 
+        if (! work.allworks.length) {
+            window.location.reload();
+        }
+        
         // wire-style populate
         work.workspop = [];
 

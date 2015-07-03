@@ -17,7 +17,7 @@
 				<div class="card-wrap">
 					<div class="row">
 						<p class="error-loading" ng-hide="list.companies.length">
-							There are none companies yet! Please reload the page later
+							There are none companies yet! Please create one touching the button above
 						</p>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in list.companies">
 							<div class="card">
@@ -33,7 +33,7 @@
 											</li>
 											<li>
 												<a ng-show="item.works.length" href="#/work/list/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;show works ({{item.works.length}})</a>
-												<label ng-hide="item.works.length"><span class="icon icon-close"></span>&nbsp;no works yet</label>
+												<a ng-hide="item.works.length" href="#/work/list/{{item.$id}}"><span class="icon icon-close"></span>&nbsp;no works yet</a>
 											</li>
 											<li>
 												<a ng-click="list.modalRegisterWork(item.$id)" href=""><span class="icon icon-check"></span>&nbsp;add work</a>

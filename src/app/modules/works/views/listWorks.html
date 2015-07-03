@@ -17,7 +17,7 @@
 				<div class="card-wrap">
 					<div class="row">
 						<p class="error-loading" ng-hide="list.workspop.length">
-							There are none works yet! Please reload the page later
+							There are none works yet! Please create one touching the button above
 						</p>
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in list.workspop">
 							<div class="card">
@@ -33,7 +33,7 @@
 											</li>
 											<li>
 												<a ng-show="item.tasks.length" href="#/task/list/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;show tasks ({{item.tasks.length}})</a>
-												<label ng-hide="item.tasks.length"><span class="icon icon-close"></span>&nbsp;no tasks yet</label>
+												<a ng-hide="item.tasks.length" href="#/task/list/{{item.$id}}"><span class="icon icon-close"></span>&nbsp;no tasks yet</a>
 											</li>
 											<li>
 												<a ng-click="list.modalRegisterTask(item.$id)" href=""><span class="icon icon-check"></span>&nbsp;add task</a>

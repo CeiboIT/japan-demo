@@ -7,6 +7,10 @@ var companiesCtrl = function(companiesService, param1, $modal) {
 
     if (param1 !== null) {
         company.companies = param1;
+
+        if (! company.companies.length) {
+            window.location.reload();
+        }
     }
 
     company.updateCompany = function(dataToUpdate) {

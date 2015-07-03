@@ -12,6 +12,10 @@ console.log("tasks controller");
     if (param2 !== null) {
         task.alltasks = param2; // all full tasks
 
+        if (! task.alltasks.length) {
+            window.location.reload();
+        }
+        
         // wire-style populate
         task.taskspop = [];
 
