@@ -19,6 +19,15 @@ var companiesCtrl = function(companiesService, param1, $modal) {
             });
     };
 
+    company.modalRegisterCompany = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'app/modules/companies/views/modalRegisterCompany.html',
+            controller: 'modalRegisterCompanyCtrl',
+            controllerAs: 'modal',
+            backdrop: 'static'
+        });
+    };
+
     company.modalRegisterWork = function (companyId) {
         var modalInstance = $modal.open({
             templateUrl: 'app/modules/works/views/modalRegisterWork.html',

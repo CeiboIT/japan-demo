@@ -1,7 +1,7 @@
 
 'use strict';
 
-var tasksCtrl = function(tasksService, worksService, param1, param2) {
+var tasksCtrl = function(tasksService, worksService, param1, param2, $modal) {
 console.log("tasks controller");
 	var task = this;
 
@@ -32,6 +32,20 @@ console.log("tasks controller");
                 task.error = error;
                 console.log("update no ok", task.error);
             });
+    };
+
+    task.modalRegisterTask = function (workId) {
+        var modalInstance = $modal.open({
+            templateUrl: 'app/modules/tasks/views/modalRegisterTask.html',
+            controller: 'modalRegisterTaskCtrl',
+            controllerAs: 'modal',
+            backdrop: 'static',
+            resolve: {
+                param1 : function(worksService) {
+                    return worksService.getWorkById(workId)
+                },
+            }
+        });
     };
 
     task.statusToDone = function(task) {
