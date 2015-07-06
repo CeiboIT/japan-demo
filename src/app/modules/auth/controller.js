@@ -22,7 +22,9 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
     authCtrl.getUserData = function() {
         AuthTokenService.getUserData()
             .then(function(data) {
-                return data.email;
+                console.log(data.email);    
+            }, function(error) {
+                authCtrl.error = error;
             });
     };
 
