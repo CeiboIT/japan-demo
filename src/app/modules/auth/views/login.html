@@ -19,7 +19,7 @@
 							<span ng-hide="login.forgot">
 								<div class="card-header">
 									<div class="card-inner">
-										<h1 class="card-heading">You're logged in as <br> {{login.getUserData()}}</h1>
+										<h1 class="card-heading">You're logged in as <br> {{ login.userEmail }}</h1>
 									</div>
 								</div>
 								<div class="card-inner">
@@ -32,7 +32,7 @@
 							</span>
 
 						</div>
-						
+
 						<div ng-hide="login.isAuthorized()" class="card-main">
 
 							<span ng-hide="login.forgot">

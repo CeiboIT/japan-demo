@@ -18,15 +18,17 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
         delete $localStorage.flash;
     }
 
-    // test 
+    // test
     authCtrl.getUserData = function() {
         AuthTokenService.getUserData()
             .then(function(data) {
-                console.log(data.email);    
+                authCtrl.userEmail = (data.email);
             }, function(error) {
                 authCtrl.error = error;
             });
     };
+
+    authCtrl.getUserData();
 
     // check if User is logged-in
     authCtrl.isAuthorized = function() {
