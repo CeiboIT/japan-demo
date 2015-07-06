@@ -7,11 +7,33 @@
 
 <div class="content-inner">
 	<div class="container">
-		<div class="row">
+		<div ng-show="login.loading" class="center">
+			<i class="fa fa-cog fa-spin big-icon"></i>
+		</div>
+		<div ng-hide="login.loading" class="row">
 			<div class="col-lg-4 col-lg-push-4 col-sm-6 col-sm-push-3">
 				<div class="card-wrap">
 					<div class="card">
-						<div class="card-main">
+						<div ng-show="login.isAuthorized()" class="card-main">
+
+							<span ng-hide="login.forgot">
+								<div class="card-header">
+									<div class="card-inner">
+										<h1 class="card-heading">You're logged in as <br> {{login.getUserData()}}</h1>
+									</div>
+								</div>
+								<div class="card-inner">
+									<div class="form-group form-group-label">
+										<div class="row center">
+											<label class="btn btn-blue waves-button waves-effect waves-light" ng-click="login.logOut()">Click here to log out</label>
+										</div>
+									</div>
+								</div>
+							</span>
+
+						</div>
+						
+						<div ng-hide="login.isAuthorized()" class="card-main">
 
 							<span ng-hide="login.forgot">
 								<div class="card-header">
@@ -47,8 +69,7 @@
 											<div class="row">
 												<div class="col-md-10 col-md-push-1">
 													<button class="btn btn-block btn-blue waves-button waves-effect waves-light" type="submit" ng-disabled="form.$invalid || login.loading">Sign In</button>
-													                  <a ng-click="login.toggleFotgonPass();">¿Olvidó su contraseña?</a>
-
+													<a ng-click="login.toggleFotgonPass();">¿Olvidó su contraseña?</a>
 												</div>
 											</div>
 										</div>
@@ -91,7 +112,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="clearfix">
+				<div ng-hide="login.isAuthorized()" class="clearfix">
 					<p class="margin-no-top pull-right"><a href="javascript:void(0)">Create an account</a></p>
 				</div>
 			</div>
