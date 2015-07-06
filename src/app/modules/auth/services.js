@@ -51,7 +51,7 @@ angular.module('authModule')
 
             service.logOut = function() {
                 auth.$unauth();
-                location.reload();
+                //location.reload();
             };
 
             service.checkUserNameAvailability = function(username) {

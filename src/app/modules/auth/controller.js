@@ -18,12 +18,27 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
         delete $localStorage.flash;
     }
 
+    // test 
+    authCtrl.getUserData = function() {
+        AuthTokenService.getUserData()
+            .then(function(data) {
+                return data.email;
+            });
+    };
+
+    // check if User is logged-in
+    authCtrl.isAuthorized = function() {
+        return AuthTokenService.isAuthorized();
+    }
+
+    // log in
     authCtrl.sendCredentials = function(userCredentials) {
         authCtrl.loading = true;
         authCtrl.loginPromise = AuthTokenService.login(userCredentials)
             .then(function() {
                 AuthTokenService.getUserData()
-                    .then(function(userData) {
+                    .then(function(userCredentials) {
+                        //console.log(userCredentials)
                 });
                 authCtrl.loading = false;
             }, function(error) {
@@ -38,10 +53,18 @@ var authCtrl = function($state, AuthTokenService, $localStorage) {
             });
     };
 
+    // log out
+    authCtrl.logOut = function() {
+        authCtrl.loading = true;
+        authCtrl.loginPromise = AuthTokenService.logOut();
+        authCtrl.loading = false;
+    };
+
     authCtrl.toggleFotgonPass = function(){
         authCtrl.forgot = !authCtrl.forgot;
     }
 
+    // register
     authCtrl.optinUser = function(optin) {
         console.log(optin)
         optin.culture = $localStorage.locale || 'es';
