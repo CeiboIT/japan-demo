@@ -3,7 +3,7 @@
 
 var worksCtrl = function(worksService, companiesService, param1, param2, $modal) {
 console.log("works controller");
-	var work = this;
+    var work = this;
 
     if (param1 !== null) {
         work.works = param1; // all work ids
@@ -12,10 +12,6 @@ console.log("works controller");
     if (param2 !== null) {
         work.allworks = param2; // all full works
 
-        if (! work.allworks.length) {
-            window.location.reload();
-        }
-        
         // wire-style populate
         work.workspop = [];
 
@@ -74,12 +70,12 @@ console.log("works controller");
         });
     };
 
-	function init() {
-    	
-	};
+    function init() {
 
-	//INITIALIZING
-	init()
+    };
+
+    //INITIALIZING
+    init()
 
 };
 

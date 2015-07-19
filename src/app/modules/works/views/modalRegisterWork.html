@@ -25,6 +25,22 @@
 					</div>
 				</div>
 			</div>
+			<div class="form-group form-group-label">
+				<div class="row">
+					<div class="col-md-10 col-md-push-1">
+						<label class="floating-label">Time (HH:mm format)</label>
+						<input class="form-control" type="text" ng-model="register.work.time" required>
+					</div>
+				</div>
+			</div>
+			<div class="form-group form-group-label">
+				<div class="row">
+					<div class="col-md-10 col-md-push-1">
+						<label class="floating-label">Assigned worker</label>
+						<select class="form-control" type="text" ng-model="register.work.workers" ng-options="item for item in modal.workersList" required></select>
+					</div>
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="row">
 					<div class="col-md-10 col-md-push-1">
@@ -34,6 +50,6 @@
 				</div>
 			</div>
 		</form>
-		
+
 	</div>
 </div>

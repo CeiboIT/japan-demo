@@ -8,7 +8,15 @@ console.log("modal register work controller");
 
 	modal.company = param1;
 
+    modal.workersList = ["Akio", "Makoto", "Yamato", "Itsuki", "Jin", "Toru", "Shizen"];
+
     modal.createWork = function(work) {
+        work.status = "pending";
+
+        var aux = work.workers;
+        work.workers = [];
+        work.workers.push(aux);
+
         work.createPromise = worksService.createWork(work)
             .then(function(data) {
 				//console.log("work: ", data);
@@ -32,7 +40,7 @@ console.log("modal register work controller");
     };
 
 	function init() {
-    	
+
 	};
 
 	//INITIALIZING

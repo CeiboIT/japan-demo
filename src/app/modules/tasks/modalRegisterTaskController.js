@@ -27,12 +27,22 @@ console.log("modal register task controller");
             });
     };
 
+    modal.addStep = function () {
+        if (modal.task.steps == undefined) {
+            modal.task.steps = [];
+            modal.task.steps.push(modal.step);
+        } else {
+            modal.task.steps.push(modal.step);
+        }
+        modal.step = "";
+    };
+
     modal.cancelar = function () {
         $modalInstance.dismiss();
     };
 
 	function init() {
-    	
+
 	};
 
 	//INITIALIZING
