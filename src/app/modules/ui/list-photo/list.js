@@ -93,6 +93,7 @@ angular.module('lixil.ui.list-photo', [])
         // Runs during compile
         return {
             scope: {
+                listCoded: '=',
                 listUrl: '=',
                 listId: '=',
                 model: '=',
