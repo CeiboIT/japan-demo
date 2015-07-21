@@ -42,19 +42,19 @@
 						<div class="task-description">
 							{{item.description}}
 						</div>
-<ul class="list task-step-list" ng-repeat="step in item.steps track by $index">
-                    <li class="item item-checkbox task-step-item">
+					<ul class="list task-step-list" ng-repeat="step in item.steps track by $index">
+	                    <li class="item item-checkbox task-step-item">
 
-                       <!-- <div class="squaredFour">-->
-                          <input class="no-checkbox" type="checkbox" value="None" id="{{step}}" name="check" />
-                          <label for="{{step}}"> {{step}}</label>
-                        <!--</div>-->
+	                       <!-- <div class="squaredFour">-->
+	                          <input class="no-checkbox" type="checkbox" value="None" id="{{step}}" name="check" />
+	                          <label for="{{step}}"> {{step}}</label>
+	                        <!--</div>-->
 
-                        <div class="task-step-name">
-                            <list-photo model="item" list-coded="item.codeImages" list-url="item.imagesUrl" list-id="item.imagesId"></list-photo>
-                        </div>
-                    </li>
-                </ul>
+	                        <div class="task-step-name">
+	                            <list-photo model="item" list-coded="item.codeImages" list-url="item.imagesUrl" list-id="item.imagesId"></list-photo>
+	                        </div>
+	                    </li>
+	                </ul>
 
 					</div>
 					<div class="tile-footer">

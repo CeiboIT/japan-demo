@@ -10095,6 +10095,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 
 .modal-backdrop {
+  width: 100%;
   background-color: #000000;
   position: fixed;
   top: 0;
@@ -10134,6 +10135,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
   background-clip: padding-box;
   background-color: #ffffff;
   border: 1px solid transparent;
+  padding: 0!important;
   border-radius: 4px;
   outline: 0;
   position: relative;
@@ -10144,6 +10146,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 .modal-dialog {
   margin: 48px 16px;
   position: relative;
+  margin: 0 auto!important;
 }
 .modal-dialog.modal-full {
   height: 100%;
@@ -12282,4 +12285,13 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
     padding-right: 16px;
     right: 240px;
   }
+}
+
+/*lightbox*/
+.lightbox-nav{
+    margin-top: 8px;
+}
+
+.lightbox-modal{
+  width: 100%;
 }
