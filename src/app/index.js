@@ -17,6 +17,7 @@ angular
 	'ngAutocomplete',
 	'angularFileUpload',
 	'ngFileUpload',
+	'bootstrapLightbox',
 	// our modules
 	'config',
 	'ceibo.ui.material.side-menu',
@@ -35,6 +36,7 @@ angular
 		$rootScope.$state = $state;
 	})
 
-	.config(function ($httpProvider) {
+	.config(function ($httpProvider, LightboxProvider) {
 		$httpProvider.interceptors.push('AuthInterceptor');
+		LightboxProvider.templateUrl = 'lightbox-modal.html';
 	})

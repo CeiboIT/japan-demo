@@ -1,6 +1,6 @@
 'use strict';
 
-var listPhotoCtrl= function(tasksService, uploadSettings, $upload, $timeout) {
+var listPhotoCtrl= function(tasksService, uploadSettings, $upload, $timeout, Lightbox) {
 console.log("list-photo controller");
     var listCtrl = this;
     var _uploadSettings = uploadSettings.getSettings('upload');
@@ -21,6 +21,17 @@ console.log("list-photo controller");
                 listCtrl.error = error.message;
             }
         }
+    };
+
+    listCtrl.openLightboxModal = function (photo, type) {
+        listCtrl.images = [];
+        if(type == 'base64'){
+            photo = 'data:image/jpeg;base64,'+photo;
+        }
+        
+        listCtrl.images.push({url:photo})
+
+        Lightbox.openModal(listCtrl.images, 0);
     };
 
     listCtrl.upload = function() {
@@ -62,6 +73,7 @@ console.log("list-photo controller");
                 //}
 
                 if (listCtrl.model) {
+                    console.log(listCtrl.model)
                     listCtrl.model.imagesUrl = listCtrl.listUrl;
                     listCtrl.model.imagesId = listCtrl.listUrl;
 

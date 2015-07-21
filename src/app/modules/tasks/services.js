@@ -50,6 +50,7 @@ var tasksService = function(fireRef, Kutral, $q, $firebaseArray) {
   };
 
   service.updateTask = function(dataToUpdate) {
+    console.log(dataToUpdate)
     var updateArticlePromise = $q.defer();
     tasksDirectory.data = dataToUpdate;
 

@@ -4,10 +4,12 @@
       <span ng-hide="list.listUrl && list.listCoded">
         <img class="task-image" ng-src="{{'/assets/images/default.png'}}">
       </span>
-      <span ng-show="list.listUrl || list.listUrl == undefined" ng-repeat="photo in list.listUrl">
-        <img class="task-image" ng-src="{{photo}}">
+     <span ng-show="list.listUrl || list.listUrl == undefined" ng-repeat="photo in list.listUrl" ng-click="list.openLightboxModal(photo)">
+         <!--<img class="task-image" ng-src="{{photo}}">-->
+          <img class="task-image" ng-src="{{photo}}">
       </span>
-      <span ng-show="list.listCoded || list.listCoded == undefined" ng-repeat="photo in list.listCoded">
+      <span ng-show="list.listCoded || list.listCoded == undefined" ng-repeat="photo in list.listCoded" ng-click="list.openLightboxModal(photo, 'base64')">
+        <!--<img class="task-image" ng-src="data:image/jpeg;base64,{{photo}}">-->
         <img class="task-image" ng-src="data:image/jpeg;base64,{{photo}}">
       </span>
       <div class="instructions">
