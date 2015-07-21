@@ -10086,7 +10086,7 @@ input[type="checkbox"]:checked + .switch-toggle-yellow:after, input[type="radio"
 }
 .modal-open .modal {
   overflow-x: hidden;
-  /* overflow: auto; */
+  overflow: auto;
   position: fixed;
   overflow-y: scroll;
   background-color: transparent;
