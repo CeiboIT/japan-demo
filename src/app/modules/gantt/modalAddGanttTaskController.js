@@ -1,79 +1,50 @@
 
 'use strict';
 
-var modalAddGanttTaskCtrl = function(ganttService, $modalInstance) {
+var modalAddGanttTaskCtrl = function(ganttService, $modalInstance, data) {
 console.log("modal register company controller");
 
     var modal = this;
 
-    /*
-    modal.createCompany = function(company) {
-        company.createPromise = companiesService.createCompany(company)
-            .then(function(data) {
-                //console.log("company: ", data);
-                $modalInstance.dismiss();
-                window.location.href = '#/work/list/' + data.id;
-            }, function(error) {
-                company.error = error;
-                //console.log("error creating company", company.error);
-            });
-    };
-    */
+    modal.taskName = "";
 
-    modal.cancelar = function () {
+    modal.data = data;
+
+    modal.addGanttTask = function() {
+        var newData = {name: modal.taskName, tasks: [
+            {name: '', color: '#f1c40f', progress: 40, from: modal.startDate, to: modal.finishDate}
+        ]};
+        data.push(newData);
+        modal.taskName = "";
+        modal.startDate = "";
+        modal.finishDate = "";
+    };
+
+    modal.cancelar = function() {
         $modalInstance.dismiss();
     };
 
     // DatePicker settings
-
-    modal.opened1 = false;
-    modal.opened2 = false;
+    modal.startDate = new Date();
+    modal.finishDate = "",
 
     modal.dateOptions = {
         formatYear: 'yy',
         startingDay: 1,
-        initDate: new Date('01-01-1900')
     };
+
+    modal.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy',
+                      'shortDate', 'fullDate', 'dd/MM/yyyy'];
+    modal.format = modal.formats[5];
 
     modal.today = function() {
         modal.dt = new Date();
-    };
-
-    modal.clear = function () {
-        modal.dt = null;
     };
 
     modal.toggleMin = function() {
         modal.minDate = modal.minDate ? null : new Date();
     };
     modal.toggleMin();
-
-    modal.open = function($event, dt) {
-        if (dt == 1) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
-            modal.opened1 = true;
-            modal.opened2 = false;
-        }
-        if (dt == 2) {
-            $event.preventDefault();
-            $event.stopPropagation();
-
-            modal.opened2 = true;
-            modal.opened1 = false;
-        };
-    };
-
-    modal.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1,
-
-    };
-
-    modal.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy',
-                      'shortDate', 'fullDate', 'dd/MM/yyyy'];
-    modal.format = modal.formats[5];
 
     var tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);

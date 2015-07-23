@@ -5,13 +5,17 @@ var ganttCtrl = function($modal) {
 
     var gantt = this;
 
-    gantt.modalAddGanttTask = function (gantt) {
+    gantt.modalAddGanttTask = function () {
         var modalInstance = $modal.open({
             templateUrl: 'app/modules/gantt/views/modalAddGanttTask.html',
             controller: 'modalAddGanttTaskCtrl',
             controllerAs: 'modal',
             backdrop: 'static',
-
+            resolve: {
+                data: function() {
+                    return gantt.data;
+                }
+            }
         });
     };
 
@@ -41,13 +45,6 @@ var ganttCtrl = function($modal) {
                 {name: '', color: '#e74c3c', from: new Date(2015, 10, 7, 16, 0, 0), to: new Date(2015, 10, 14, 15, 0, 0), progress: 10}
             ]},
     ];
-
-    gantt.addTask = function() {
-        var newData = {name: 'New task', tasks: [
-            {name: '', color: '#f1c40f', progress: 40, from: new Date(2015, 10, 15, 8, 0, 0), to: new Date(2015, 10, 20, 18, 0, 0)}
-        ]};
-        gantt.data.push(newData);
-    };
 
     function init() {
         console.log("gantt controller");

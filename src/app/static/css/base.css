@@ -162,6 +162,14 @@ nav {
   margin: 10px;
 }
 
+.gantt-task-label {
+  font-size: 14px;
+}
+
+.gantt-task-input {
+  font-size: 12px !important;
+}
+
 /* INIT GANTT */
 
 .gantt-task-group,

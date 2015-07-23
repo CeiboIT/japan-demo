@@ -12,31 +12,27 @@
                 <div class="row">
                     <!-- Modal inputs -->
                     <div class="col-md-10 col-md-push-1">
-                        <label class="">Task name</label>
-                        <input class="form-control" type="text" name="company.name" ng-model="register.company.name" required>
-                    </div>
-                    <div class="col-md-10 col-md-push-1">
-                        <label class="">Task name</label>
-                        <input class="form-control" type="text" name="company.name" ng-model="register.company.name" required>
+                        <label class="gantt-task-label">Task name</label>
+                        <input class="form-control gantt-task-input" type="text" name="modal.taskName" ng-model="modal.taskName" required>
                     </div>
                 </div>
             </div>
 
             <!-- Start date timepicker -->
             <div class="col-sm-6" style="display:inline-block; min-height:290px;">
-                <datepicker ng-model="fechaInicio" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                <datepicker ng-model="modal.startDate" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
             </div>
 
             <!-- Finish date timepicker -->
             <div class="col-sm-6" style="display:inline-block; min-height:290px;">
-                <datepicker ng-model="fechaInicio" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                <datepicker ng-model="modal.finishDate" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
             </div>
 
             <!-- Modal buttons -->
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-10 col-md-push-1">
-                        <label class="btn btn-blue waves-button waves-effect waves-light" ng-click="modal.createCompany(register.company)">Add</label>
+                        <label class="btn btn-blue waves-button waves-effect waves-light" ng-click="modal.addGanttTask()">Add</label>
                         <label class="btn btn-red waves-button waves-effect waves-light" ng-click="modal.cancelar()">Close</label>
                     </div>
                 </div>
