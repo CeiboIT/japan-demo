@@ -162,11 +162,35 @@ nav {
   margin: 10px;
 }
 
-.gantt-row-milestone {
-    font-weight: bold;
-    vertical-align: middle;
-    color: white;
+/* INIT GANTT */
+
+.gantt-task-group,
+.gantt-task-group-left-main,
+.gantt-task-group-right-main {
+  background: #34495e;
 }
+
+.gantt-task-group-left-symbol,
+.gantt-task-group-right-symbol {
+    border-top: 12px solid #34495e;
+}
+
+.gantt-task-progress {
+  background-color: #2c3e50 !important;
+}
+
+.glyphicon {
+  color: #34495e;
+  line-height: 2 !important;
+}
+
+.gantt-valign-content .btn,
+.gantt-valign-content .btn:hover {
+  background-color: rgba(0,0,0,0);
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.16), 0 0px 0px 0 rgba(0, 0, 0, 0.12)
+}
+
+/* END GANTT */
 
 
 /* ======= personalized styles ======= /*/
