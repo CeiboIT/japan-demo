@@ -22,6 +22,7 @@ angular
 	'config',
 	'ceibo.ui.material.side-menu',
 	'lixil.ui.list-photo',
+	'ganttModule',
 	'landingModule',
 	'homeModule',
 	'companiesModule',
