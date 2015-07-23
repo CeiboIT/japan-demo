@@ -10,21 +10,29 @@
         <form class="form" action="" novalidate>
             <div class="form-group form-group-label">
                 <div class="row">
-
+                    <!-- Modal inputs -->
+                    <div class="col-md-10 col-md-push-1">
+                        <label class="">Task name</label>
+                        <input class="form-control" type="text" name="company.name" ng-model="register.company.name" required>
+                    </div>
                     <div class="col-md-10 col-md-push-1">
                         <label class="">Task name</label>
                         <input class="form-control" type="text" name="company.name" ng-model="register.company.name" required>
                     </div>
                 </div>
             </div>
-            <div class="form-group form-group-label">
-                <div class="row">
-                    <div class="col-md-10 col-md-push-1">
-                        <label class="">Task duration</label>
-                        <input class="form-control" type="email" name="company.owner" ng-model="register.company.owner" required>
-                    </div>
-                </div>
+
+            <!-- Start date timepicker -->
+            <div class="col-sm-6" style="display:inline-block; min-height:290px;">
+                <datepicker ng-model="fechaInicio" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
             </div>
+
+            <!-- Finish date timepicker -->
+            <div class="col-sm-6" style="display:inline-block; min-height:290px;">
+                <datepicker ng-model="fechaInicio" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+            </div>
+
+            <!-- Modal buttons -->
             <div class="form-group">
                 <div class="row">
                     <div class="col-md-10 col-md-push-1">
@@ -37,3 +45,6 @@
 
     </div>
 </div>
+
+
+
