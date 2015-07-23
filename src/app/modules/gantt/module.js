@@ -1,7 +1,19 @@
 
 'use strict';
 
-angular.module('ganttModule', [])
+angular.module('ganttModule', [
+    'gantt',
+    'gantt.movable',
+    'gantt.drawtask',
+    'gantt.tooltips',
+    'gantt.bounds',
+    'gantt.progress',
+    'gantt.table',
+    'gantt.tree',
+    'gantt.groups',
+    'gantt.resizeSensor',
+    'gantt.sortable',
+])
 
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider

@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
 
 <div class="content-heading">
     <div class="container">
@@ -8,44 +9,27 @@
 <div class="content-inner">
     <div class="container">
         <div class="row">
+        <br>
 
-            <div class="item-options">
-                <label class="btn btn-blue waves-button waves-effect waves-light" ng-click="gantt.say('hello')">Button</label>
-            </div>
 
-            <div class="cards-container">
-                <div class="card-wrap">
-                    <div class="row">
-                        <p class="error-loading" ng-hide="list.companies.length">
-                            There are none Gantt diagram yet!
-                        </p>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12" ng-repeat="item in list.companies">
-                            <div class="card">
-                                <div class="card-main">
-                                    <div class="card-img">
-                                        <img alt="alt text" src="assets/images/company.jpg">
-                                        <p class="card-title">{{item.name}} <br> <span class="card-subtitle">{{item.owner}}</span></p>
-                                    </div>
-                                    <div class="card-options">
-                                        <ul>
-                                            <li>
-                                                <a href="#/company/update/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;update information</a>
-                                            </li>
-                                            <li>
-                                                <a ng-show="item.works.length" href="#/work/list/{{item.$id}}"><span class="icon icon-check"></span>&nbsp;show works ({{item.works.length}})</a>
-                                                <a ng-hide="item.works.length" href="#/work/list/{{item.$id}}"><span class="icon icon-close"></span>&nbsp;no works yet</a>
-                                            </li>
-                                            <li>
-                                                <a ng-click="list.modalRegisterWork(item.$id)" href=""><span class="icon icon-check"></span>&nbsp;add work</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div>
+    <div gantt data="gantt.data" style="margin-left: auto; margin-right: auto;">
+        <!-- <gantt-table columns="['model.name']"></gantt-table> -->
+        <gantt-tree></gantt-tree>
+        <gantt-groups></gantt-groups>
+        <gantt-tooltips></gantt-tooltips>
+        <gantt-bounds></gantt-bounds>
+        <gantt-progress></gantt-progress>
+        <gantt-sortable></gantt-sortable>
+        <gantt-movable></gantt-movable>
+        <gantt-draw-task></gantt-draw-task>
+        <gantt-resize-sensor></gantt-resize-sensor>
+    </div>
+</div>
+
+
+
+
 
         </div>
     </div>
