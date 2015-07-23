@@ -20,12 +20,12 @@
 
             <!-- Start date timepicker -->
             <div class="col-sm-6" style="display:inline-block; min-height:290px;">
-                <datepicker ng-model="modal.startDate" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                <datepicker ng-model="modal.startDate" min-date="modal.today" show-weeks="true" class="well well-sm" ></datepicker>
             </div>
 
             <!-- Finish date timepicker -->
             <div class="col-sm-6" style="display:inline-block; min-height:290px;">
-                <datepicker ng-model="modal.finishDate" min-date="modal.minDate" show-weeks="true" class="well well-sm" custom-class="getDayClass(date, mode)"></datepicker>
+                <datepicker ng-model="modal.finishDate" init-date="modal.startDate" min-date="modal.startDate" show-weeks="true" class="well well-sm"></datepicker>
             </div>
 
             <!-- Modal buttons -->

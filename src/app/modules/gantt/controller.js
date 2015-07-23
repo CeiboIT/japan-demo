@@ -46,6 +46,51 @@ var ganttCtrl = function($modal) {
             ]},
     ];
 
+    gantt.options = {
+        // gantt
+        width: 30,
+        headers: ['month', 'week', 'day'], // 'second', 'minute', 'hour', 'day','week', 'month', 'quarter', 'year'
+        fromDate: null, // new Date(2015, 9, 25, 16, 0, 0)
+        toDate: null, // new Date(2015, 9, 25, 16, 0, 0)
+        currentDate: 'column', // 'none', 'line', 'column'
+        currentDateValue: new Date(), // new Date(2015, 9, 25, 16, 0, 0)
+        columnMagnet: '1 day', // 'column', '1 second', '1 minute', '5 minutes', '15 minutes', '1 hour', '1 day', '5 days'
+        labelsEnabled: {
+            "value": true, // true, false
+            "true": "Showing side",
+            "false": "Hiding side",
+        },
+        allowSideResizing: false, // true, false
+        editGraph: {
+            "value": false, // true, false
+            "true": "Can edit graph",
+            "false": "Can't edit graph"
+        },
+        // gantt-table
+        columns: ['from', 'to'],
+        columnsHeaders: {'model.name' : 'Name', 'from': 'From', 'to': 'To'},
+        columnsClasses: {'model.name' : 'gantt-column-name', 'from': 'gantt-column-from', 'to': 'gantt-column-to'},
+        columnsFormatters: {
+            'from': function(from) {
+                return from !== undefined ? from.format('ll') : undefined; // 'lll'
+            },
+            'to': function(to) {
+                return to !== undefined ? to.format('ll') : undefined; // 'lll'
+            }
+        },
+        columnsContents: null,
+        columnsHeaderContents: {
+            'model.name': '<i class="fa fa-align-justify"></i> {{getHeader()}}',
+            'from': '<i class="fa fa-calendar"></i> {{getHeader()}}',
+            'to': '<i class="fa fa-calendar"></i> {{getHeader()}}'
+        },
+    };
+
+    gantt.saveGanttData = function() {
+        console.log("SAVED!");
+        console.log(gantt.data);
+    }
+
     function init() {
         console.log("gantt controller");
     };

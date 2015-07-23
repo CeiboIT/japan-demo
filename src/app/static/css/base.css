@@ -162,8 +162,12 @@ nav {
   margin: 10px;
 }
 
+.gantt-option-label {
+  font-size: 11px !important;
+}
+
 .gantt-task-label {
-  font-size: 14px;
+  font-size: 14px !important;
 }
 
 .gantt-task-input {

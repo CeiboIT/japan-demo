@@ -4,34 +4,51 @@
     <div class="container">
         <h1 class="heading">Gantt diagram</h1>
     </div>
+    <div class="item-options">
+        <span class="btn card-alt">
+            <input class="no-checkbox" type="checkbox" value="None" ng-model="gantt.options.editGraph.value" id="editGraph" name="check" />
+            <label class="gantt-option-label" for="editGraph">{{gantt.options.editGraph[gantt.options.editGraph.value]}}</label>
+        </span>
+        <span class="btn card-alt">
+            <input class="no-checkbox" type="checkbox" value="None" ng-model="gantt.options.labelsEnabled.value" id="showLabels" name="check" />
+            <label class="gantt-option-label" for="showLabels">{{gantt.options.labelsEnabled[gantt.options.labelsEnabled.value]}}</label>
+        </span>
+        <span class="btn card-alt">
+            <input class="no-checkbox" type="number" ng-model="gantt.options.width" id="columnWidth" />
+            <label class="gantt-option-label" for="columnWidth">Select column width</label>
+        </span>
+    </div>
 </div>
-
 
 <div class="content-inner">
     <div class="container">
         <div class="row">
+
             <div class="item-options">
                 <label class="btn btn-blue waves-button waves-effect waves-light" ng-click="gantt.modalAddGanttTask()">Add task</label>
+                <label class="btn btn-alt waves-button waves-effect waves-light" ng-click="gantt.saveGanttData()">Save changes</label>
             </div>
 
-<div>
-    <div gantt data="gantt.data" style="margin-left: auto; margin-right: auto;">
-        <!-- <gantt-table columns="['model.name']"></gantt-table> -->
-        <gantt-tree></gantt-tree>
-        <gantt-groups></gantt-groups>
-        <gantt-tooltips></gantt-tooltips>
-        <gantt-bounds></gantt-bounds>
-        <gantt-progress></gantt-progress>
-        <gantt-sortable></gantt-sortable>
-        <gantt-movable></gantt-movable>
-        <gantt-draw-task></gantt-draw-task>
-        <gantt-resize-sensor></gantt-resize-sensor>
-    </div>
-</div>
-
-
-
-
+            <div>
+                <div gantt
+                    data="gantt.data" options="gantt.options" column-width="gantt.options.width"
+                    show-side="gantt.options.labelsEnabled.value"
+                style="margin-left: auto; margin-right: auto;">
+                    <gantt-table
+                        columns="gantt.options.columns" headers="gantt.options.columnsHeaders" formatters="gantt.options.columnsFormatters"
+                        classes="gantt.options.columnsClasses" header-contents="options.columnsHeaderContents"
+                    ></gantt-table>
+                    <gantt-tree></gantt-tree>
+                    <gantt-groups></gantt-groups>
+                    <gantt-tooltips></gantt-tooltips>
+                    <gantt-bounds></gantt-bounds>
+                    <gantt-progress></gantt-progress>
+                    <gantt-sortable></gantt-sortable>
+                    <gantt-movable enabled="gantt.options.editGraph.value"></gantt-movable>
+                    <gantt-draw-task></gantt-draw-task>
+                    <gantt-resize-sensor></gantt-resize-sensor>
+                </div>
+            </div>
 
         </div>
     </div>
