@@ -13,6 +13,7 @@ angular.module('ganttModule', [
     'gantt.groups',
     'gantt.resizeSensor',
     'gantt.sortable',
+    'rzModule',
 ])
 
     .config(function ($stateProvider, $urlRouterProvider) {

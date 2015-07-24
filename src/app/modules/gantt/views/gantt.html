@@ -13,10 +13,12 @@
             <input class="no-checkbox" type="checkbox" value="None" ng-model="gantt.options.labelsEnabled.value" id="showLabels" name="check" />
             <label class="gantt-option-label" for="showLabels">{{gantt.options.labelsEnabled[gantt.options.labelsEnabled.value]}}</label>
         </span>
-        <span class="btn card-alt">
-            <input class="no-checkbox" type="number" ng-model="gantt.options.width" id="columnWidth" />
-            <label class="gantt-option-label" for="columnWidth">Select column width</label>
-        </span>
+        <br><br>
+        <div class="gantt-column-width-container">
+            <div class="gantt-column-width">
+                <rzslider id="columnWidth" rz-slider-model="gantt.options.width" rz-slider-floor="gantt.minWidth" rz-slider-ceil="gantt.maxWidth"></rzslider>
+            </div>
+        </div>
     </div>
 </div>
 

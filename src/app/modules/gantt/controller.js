@@ -86,6 +86,9 @@ var ganttCtrl = function($modal) {
         },
     };
 
+    gantt.maxWidth = 100;
+    gantt.minWidth = 10;
+
     gantt.saveGanttData = function() {
         console.log("SAVED!");
         console.log(gantt.data);
