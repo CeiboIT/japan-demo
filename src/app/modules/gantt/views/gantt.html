@@ -27,8 +27,9 @@
         <div class="row">
 
             <div class="item-options">
-                <label class="btn btn-blue waves-button waves-effect waves-light" ng-click="gantt.modalAddGanttTask()">Add task</label>
-                <label class="btn btn-alt waves-button waves-effect waves-light" ng-click="gantt.saveGanttData()">Save changes</label>
+                <label class="btn btn-alt waves-button waves-effect waves-light" ng-click="gantt.modalAddGanttGroup()">Add group</label>
+                <label class="btn btn-alt waves-button waves-effect waves-light" ng-click="gantt.modalAddGanttTask()">Add task</label>
+                <label class="btn btn-blue waves-button waves-effect waves-light" ng-click="gantt.saveGanttData()">Save changes</label>
             </div>
 
             <div>
@@ -37,8 +38,9 @@
                     show-side="gantt.options.labelsEnabled.value"
                 style="margin-left: auto; margin-right: auto;">
                     <gantt-table
-                        columns="gantt.options.columns" headers="gantt.options.columnsHeaders" formatters="gantt.options.columnsFormatters"
-                        classes="gantt.options.columnsClasses" header-contents="options.columnsHeaderContents"
+                        columns="gantt.options.columns" headers="gantt.options.columnsHeaders" contents="gantt.options.columnsContents"
+                        formatters="gantt.options.columnsFormatters" classes="gantt.options.columnsClasses"
+                        header-contents="gantt.options.columnsHeaderContents"
                     ></gantt-table>
                     <gantt-tree></gantt-tree>
                     <gantt-groups></gantt-groups>

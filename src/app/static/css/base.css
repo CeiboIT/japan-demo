@@ -180,6 +180,10 @@ nav {
   text-align: left;
 }
 
+.gantt-column-worker {
+  width: 100px;
+}
+
 .gantt-column-width-container {
   width: 340px;
   margin: 0 auto;

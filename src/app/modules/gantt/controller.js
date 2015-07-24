@@ -19,29 +19,43 @@ var ganttCtrl = function($modal) {
         });
     };
 
+    gantt.modalAddGanttGroup = function () {
+        var modalInstance = $modal.open({
+            templateUrl: 'app/modules/gantt/views/modalAddGanttGroup.html',
+            controller: 'modalAddGanttGroupCtrl',
+            controllerAs: 'modal',
+            backdrop: 'static',
+            resolve: {
+                data: function() {
+                    return gantt.data;
+                }
+            }
+        });
+    };
+
     gantt.data = [
         {name: 'Wall', children: ['Prepare the mixture', 'Laying bricks']},
-            {name: 'Prepare the mixture', tasks: [
+            {name: 'Prepare the mixture', worker: 'Akio', tasks: [
                 {name: '', color: '#2ecc71', from: new Date(2015, 9, 17, 8, 0, 0), to: new Date(2015, 9, 19, 7, 0, 0), progress: 5}
             ]},
-            {name: 'Laying bricks', tasks: [
+            {name: 'Laying bricks', worker: 'Makoto', tasks: [
                 {name: '', color: '#2ecc71', from: new Date(2015, 9, 19, 8, 0, 0), to: new Date(2015, 9, 22, 7, 0, 0), progress: 70}
             ]},
         {name: 'Spouts', children: ['Gas', 'Water']},
-            {name: 'Gas', tooltips: false, tasks: [
+            {name: 'Gas', worker: 'Jin', tasks: [
                 {name: '', color: '#3498db', from: new Date(2015, 9, 22, 8, 0, 0), to: new Date(2015, 9, 25, 15, 0, 0), progress: 25}
             ]},
-            {name: 'Water', tasks: [
+            {name: 'Water', worker: 'Itsuki', tasks: [
                 {name: '', color: '#3498db', from: new Date(2015, 9, 25, 16, 0, 0), to: new Date(2015, 10, 1, 15, 0, 0), progress: 10}
             ]},
         {name: 'Painting', children: ['Sand', 'Buy paint', 'Painting']},
-            {name: 'Sand', tooltips: false, tasks: [
+            {name: 'Sand', worker: 'Akio', tasks: [
                 {name: '', color: '#e74c3c', from: new Date(2015, 10, 1, 16, 0, 0), to: new Date(2015, 10, 5, 7, 0, 0), progress: 25}
             ]},
-            {name: 'Buy paint', tasks: [
+            {name: 'Buy paint', worker: 'Shizen', tasks: [
                 {name: '', color: '#e74c3c', from: new Date(2015, 10, 5, 8, 0, 0), to: new Date(2015, 10, 7, 15, 0, 0), progress: 10}
             ]},
-            {name: 'Painting', tasks: [
+            {name: 'Painting', worker: 'Toru', tasks: [
                 {name: '', color: '#e74c3c', from: new Date(2015, 10, 7, 16, 0, 0), to: new Date(2015, 10, 14, 15, 0, 0), progress: 10}
             ]},
     ];
@@ -67,22 +81,35 @@ var ganttCtrl = function($modal) {
             "false": "Can't edit graph"
         },
         // gantt-table
-        columns: ['from', 'to'],
-        columnsHeaders: {'model.name' : 'Name', 'from': 'From', 'to': 'To'},
-        columnsClasses: {'model.name' : 'gantt-column-name', 'from': 'gantt-column-from', 'to': 'gantt-column-to'},
+        columns: ['from', 'to', 'model.worker'],
+        columnsHeaders: {
+            //'model.name' : 'Name',
+            'from': 'From',
+            'to': 'To',
+            'model.worker': 'Worker'
+        },
+        columnsClasses: {
+            //'model.name' : 'gantt-column-name',
+            'from': 'gantt-column-from',
+            'to': 'gantt-column-to',
+            'model.worker': 'gantt-column-worker'
+        },
         columnsFormatters: {
             'from': function(from) {
                 return from !== undefined ? from.format('ll') : undefined; // 'lll'
             },
             'to': function(to) {
                 return to !== undefined ? to.format('ll') : undefined; // 'lll'
-            }
+            },
         },
-        columnsContents: null,
+        columnsContents: {
+            'model.worker': '{{getValue()}}'
+        },
         columnsHeaderContents: {
-            'model.name': '<i class="fa fa-align-justify"></i> {{getHeader()}}',
+            //'model.name': '<i class="fa fa-align-justify"></i> {{getHeader()}}',
             'from': '<i class="fa fa-calendar"></i> {{getHeader()}}',
-            'to': '<i class="fa fa-calendar"></i> {{getHeader()}}'
+            'to': '<i class="fa fa-calendar"></i> {{getHeader()}}',
+            'model.worker': '<i class="fa fa-user"></i> {{getHeader()}}'
         },
     };
 
