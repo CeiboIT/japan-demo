@@ -14,6 +14,7 @@ angular.module('ganttModule', [
     'gantt.resizeSensor',
     'gantt.sortable',
     'rzModule',
+    'mp.colorPicker',
 ])
 
     .config(function ($stateProvider, $urlRouterProvider) {

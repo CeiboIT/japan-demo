@@ -27,21 +27,26 @@ console.log("modal register gantt task controller");
             name: modal.taskName,
             worker: modal.selectedWorker,
             tasks: [{
-                name: '',
-                color: '#f1c40f',
+                //name: modal.taskName,
+                color: null,
                 progress: 0,
                 from: modal.startDate,
                 to: modal.finishDate
             }]
         };
-        data.push(newData);
 
-        // add task to selected group
+        // search selected group
         for (var item in data) {
             if (data[item].name == modal.selectedGroup) {
-                data[item].children.push(newData.name);
-            }
+                // add task to selected group
+                data[item].children.push(modal.taskName);
+                // get group color
+                newData.tasks[0].color = data[item].savedColor;
+            };
         };
+
+        // add new task to Gantt data
+        data.push(newData);
 
         modal.selectedGroup = "Select group";
         modal.taskName = "";

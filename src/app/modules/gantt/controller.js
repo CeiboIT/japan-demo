@@ -1,7 +1,7 @@
 
 'use strict';
 
-var ganttCtrl = function($modal) {
+var ganttCtrl = function(ganttService, $modal) {
 
     var gantt = this;
 
@@ -34,21 +34,21 @@ var ganttCtrl = function($modal) {
     };
 
     gantt.data = [
-        {name: 'Wall', children: ['Prepare the mixture', 'Laying bricks']},
+        {name: 'Wall', savedColor: '#2ecc71', children: ['Prepare the mixture', 'Laying bricks']},
             {name: 'Prepare the mixture', worker: 'Akio', tasks: [
                 {name: '', color: '#2ecc71', from: new Date(2015, 9, 17, 8, 0, 0), to: new Date(2015, 9, 19, 7, 0, 0), progress: 5}
             ]},
             {name: 'Laying bricks', worker: 'Makoto', tasks: [
                 {name: '', color: '#2ecc71', from: new Date(2015, 9, 19, 8, 0, 0), to: new Date(2015, 9, 22, 7, 0, 0), progress: 70}
             ]},
-        {name: 'Spouts', children: ['Gas', 'Water']},
+        {name: 'Spouts', savedColor: '#3498db', children: ['Gas', 'Water']},
             {name: 'Gas', worker: 'Jin', tasks: [
                 {name: '', color: '#3498db', from: new Date(2015, 9, 22, 8, 0, 0), to: new Date(2015, 9, 25, 15, 0, 0), progress: 25}
             ]},
             {name: 'Water', worker: 'Itsuki', tasks: [
                 {name: '', color: '#3498db', from: new Date(2015, 9, 25, 16, 0, 0), to: new Date(2015, 10, 1, 15, 0, 0), progress: 10}
             ]},
-        {name: 'Painting', children: ['Sand', 'Buy paint', 'Painting']},
+        {name: 'Painting', savedColor: '#e74c3c', children: ['Sand', 'Buy paint', 'Painting']},
             {name: 'Sand', worker: 'Akio', tasks: [
                 {name: '', color: '#e74c3c', from: new Date(2015, 10, 1, 16, 0, 0), to: new Date(2015, 10, 5, 7, 0, 0), progress: 25}
             ]},
@@ -117,8 +117,8 @@ var ganttCtrl = function($modal) {
     gantt.minWidth = 10;
 
     gantt.saveGanttData = function() {
-        console.log("SAVED!");
-        console.log(gantt.data);
+        //console.log("SAVED!");
+        console.log("DATA TO SAVE: ", gantt.data);
     }
 
     function init() {

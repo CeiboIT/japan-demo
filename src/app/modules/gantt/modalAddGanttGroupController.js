@@ -10,10 +10,12 @@ console.log("modal register gantt group controller");
 
     // gantt group creation
     modal.addGanttGroup = function() {
-        var newData = {name: modal.groupName, children: []};
+        var newData = {name: modal.groupName, savedColor: modal.groupColor, children: []};
         data.push(newData);
         modal.groupName = "";
-    }
+        modal.groupColor = "";
+        console.log(newData);
+    };
 
     // modal close
     modal.cancelar = function() {

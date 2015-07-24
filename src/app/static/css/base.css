@@ -21,6 +21,14 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
   transition: all .3s;
 }
 
+label {
+  margin-bottom: 0px !important;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
 .big-icon {
   padding: 25px;
   font-size: 60px !important;
@@ -193,6 +201,19 @@ nav {
   border-radius: 5px;
 }
 
+.gantt-test-color {
+  height: 200px;
+}
+
+.angular-color-picker {
+  border: 0px solid #ddd;
+  padding: 0px;
+}
+
+.angular-color-picker > ._hues > ._cursor {
+    left: -1px;
+    width: 29px;
+}
 
 /* INIT GANTT */
 
@@ -8608,8 +8629,6 @@ a.fbtn:focus, a.fbtn:hover {
 }
 
 .card-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
   position: relative;
 }
 .card-header:after, .card-header:before {
@@ -8672,14 +8691,14 @@ a.fbtn:focus, a.fbtn:hover {
 }
 
 .card-inner {
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 10px;
+  padding-left: 10px;
   position: relative;
   z-index: 1;
 }
 .card-header .card-inner {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 .card-inner-side ~ .card-inner, .tile-side ~ .card-inner {
   overflow: hidden;
@@ -9229,9 +9248,9 @@ select.picker__select--year {
   select.form-control, select.picker__select--month,
   select.picker__select--year {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAkCAMAAACg5NohAAAAZlBMVEUAAABlZWXLy8vg4OB6enrX19fg4OCdnZ2KiopsbGzn5+dzc3Pt7e3GxsbPz89ubm7u7u5ycnLY2NiJiYmGhoZoaGjq6up/f3+WlpaGhoaZmZllZWVhYWFYWFhaWlpdXV1bW1tWVlaZeqNTAAAAHHRSTlMA+WVC31BEqMzyNekpcGDpKNxJzcjkL9CjwZ/yNlWBeQAAALBJREFUKM/NztkWwiAMRdFQoNparR2cGf//J8UFNdXEd8/rXrkAq9rLoIGt3Vkn9A8xJoiaSqeSJGskuXlJNs2sFRPjWo7lptzVVEoO7VyEWofvoEn8NTUUxuZo2KyCPjo2+wB9m7ZM01zB/9feN2zXEVS0bLEHZQ1b6EE2jhNvDsBbMBWkampepJtizNpi4UPyGrEimBbhLT4L2nLnzR6+ksnIGm7iGjXv8xq14bSWJwymLjvMk/6KAAAAAElFTkSuQmCC);
-    background-position: 100% 11px;
+    background-position: 99% 10px;
     background-repeat: no-repeat;
-    background-size: auto 12px;
+    background-size: auto 15px;
     padding-right: 12px;
   }
   select.form-control[multiple], select[multiple].picker__select--month,
@@ -9850,7 +9869,7 @@ legend + .form-group {
 }
 
 .form-group-label {
-  margin-top: 25px;
+  margin-top: 10px;
   position: relative;
 }
 .form-group-label .form-control, .form-group-label .picker__select--month,

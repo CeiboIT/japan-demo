@@ -16,6 +16,17 @@
                         <input class="form-control gantt-task-input" type="text" name="modal.groupName" ng-model="modal.groupName" required>
                     </div>
                 </div>
+                <div class="row">
+                       <!-- Color picker -->
+                       <div class="col-md-10 col-md-push-1">
+                            <div class="col-sm-7">
+                                <color-picker ng-model="modal.groupColor" required></color-picker>
+                            </div>
+                            <div class="col-sm-5" style="background-color: {{modal.groupColor}};">
+                                <div class="gantt-test-color"></div>
+                            </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Modal buttons -->
