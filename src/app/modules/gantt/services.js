@@ -55,6 +55,28 @@ var ganttService = function(fireRef, Kutral, $q, $firebaseArray) {
 
   };
 
+  service.saveGanttData = function(dataToUpdate){
+    var saveGanttDataPromise = $q.defer();
+      var promisesArray = [];
+
+      dataToUpdate.forEach(function(data) {
+        var loopPromise = $q.defer()
+
+            service.updateGantt(data).then(function(ganttUpdate){
+                loopPromise.resolve(ganttUpdate)
+            })
+
+        promisesArray.push(loopPromise.promise);
+      })
+
+      
+      $q.all(promisesArray).then(function(results) {
+        saveGanttDataPromise.resolve(results);
+      })
+      
+      return saveGanttDataPromise.promise
+  }
+
 };
 
 angular.module('ganttModule')

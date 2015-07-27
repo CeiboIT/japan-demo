@@ -1,7 +1,7 @@
 
 'use strict';
 
-var ganttCtrl = function(ganttService, $modal) {
+var ganttCtrl = function(showGantt, ganttService, $modal, $state) {
 
     var gantt = this;
 
@@ -33,32 +33,39 @@ var ganttCtrl = function(ganttService, $modal) {
         });
     };
 
-    gantt.data = [
+   /* gantt.data2 = [
         {name: 'Wall', savedColor: '#2ecc71', children: ['Prepare the mixture', 'Laying bricks']},
             {name: 'Prepare the mixture', worker: 'Akio', tasks: [
-                {name: '', color: '#2ecc71', from: new Date(2015, 9, 17, 8, 0, 0), to: new Date(2015, 9, 19, 7, 0, 0), progress: 5}
+                {name: '', color: '#2ecc71', from: String(moment("2015-9-17 8:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-9-19 7:00", "YYYY-MM-DD HH:mm")), progress: 5}
             ]},
             {name: 'Laying bricks', worker: 'Makoto', tasks: [
-                {name: '', color: '#2ecc71', from: new Date(2015, 9, 19, 8, 0, 0), to: new Date(2015, 9, 22, 7, 0, 0), progress: 70}
+                {name: '', color: '#2ecc71', from: String(moment("2015-9-19 8:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-9-22 7:00", "YYYY-MM-DD HH:mm")), progress: 70}
             ]},
         {name: 'Spouts', savedColor: '#3498db', children: ['Gas', 'Water']},
             {name: 'Gas', worker: 'Jin', tasks: [
-                {name: '', color: '#3498db', from: new Date(2015, 9, 22, 8, 0, 0), to: new Date(2015, 9, 25, 15, 0, 0), progress: 25}
+                {name: '', color: '#3498db', from: String(moment("2015-9-22 8:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-9-25 15:00", "YYYY-MM-DD HH:mm")), progress: 25}
             ]},
             {name: 'Water', worker: 'Itsuki', tasks: [
-                {name: '', color: '#3498db', from: new Date(2015, 9, 25, 16, 0, 0), to: new Date(2015, 10, 1, 15, 0, 0), progress: 10}
+                {name: '', color: '#3498db', from: String(moment("2015-9-25 16:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-10-1 15:00", "YYYY-MM-DD HH:mm")), progress: 10}
             ]},
         {name: 'Painting', savedColor: '#e74c3c', children: ['Sand', 'Buy paint', 'Painting']},
             {name: 'Sand', worker: 'Akio', tasks: [
-                {name: '', color: '#e74c3c', from: new Date(2015, 10, 1, 16, 0, 0), to: new Date(2015, 10, 5, 7, 0, 0), progress: 25}
+                {name: '', color: '#e74c3c', from: String(moment("2015-10-1 16:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-10-5 7:00", "YYYY-MM-DD HH:mm")), progress: 25}
             ]},
             {name: 'Buy paint', worker: 'Shizen', tasks: [
-                {name: '', color: '#e74c3c', from: new Date(2015, 10, 5, 8, 0, 0), to: new Date(2015, 10, 7, 15, 0, 0), progress: 10}
+                {name: '', color: '#e74c3c', from: String(moment("2015-10-5 8:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-10-7 15:00", "YYYY-MM-DD HH:mm")), progress: 10}
             ]},
             {name: 'Painting', worker: 'Toru', tasks: [
-                {name: '', color: '#e74c3c', from: new Date(2015, 10, 7, 16, 0, 0), to: new Date(2015, 10, 14, 15, 0, 0), progress: 10}
+                {name: '', color: '#e74c3c', from: String(moment("2015-10-7 16:00", "YYYY-MM-DD HH:mm")), to: String(moment("2015-10-14 15:00", "YYYY-MM-DD HH:mm")), progress: 10}
             ]},
-    ];
+    ];*/
+
+    gantt.data = showGantt;
+    gantt.data.forEach(function(data){
+        data.id = data.$id;
+    })
+    console.log(gantt.data)
+
 
     gantt.options = {
         // gantt
@@ -116,9 +123,27 @@ var ganttCtrl = function(ganttService, $modal) {
     gantt.maxWidth = 100;
     gantt.minWidth = 10;
 
-    gantt.saveGanttData = function() {
-        //console.log("SAVED!");
-        console.log("DATA TO SAVE: ", gantt.data);
+    gantt.createGanttData = function() {
+        gantt.data2.forEach(function(data){
+            ganttService.createGantt(data).then(function(ganttUpdate){
+                console.log("DATA TO SAVE: ", ganttUpdate);
+            })
+        })  
+    }
+//gantt.createGanttData(gantt.data2)
+    gantt.saveGanttData = function(ganttData) {
+            ganttData.forEach(function(data){
+                if(data.tasks){
+                    data.tasks.forEach(function(task){
+                        /*task.to = 
+                        task.from = */
+                    })
+                }
+            }) 
+
+            ganttService.saveGanttData(ganttData).then(function(ganttUpdate){
+            })
+
     }
 
     function init() {

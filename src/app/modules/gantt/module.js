@@ -22,6 +22,11 @@ angular.module('ganttModule', [
             .state('app.gantt', {
                 url: '/gantt',
                 controller : 'ganttCtrl as gantt',
-                templateUrl: 'app/modules/gantt/views/gantt.html'
+                templateUrl: 'app/modules/gantt/views/gantt.html',
+                resolve : {
+                    showGantt : function(ganttService) {
+                        return ganttService.showGantt()
+                    }
+                }
             })
     })
